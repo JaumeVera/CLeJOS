@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g 2014-04-30 09:52:32
+// $ANTLR 3.4 /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g 2014-05-07 22:25:33
 
 package parser;
 
@@ -11,67 +11,74 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class AslLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int T__61=61;
-    public static final int T__62=62;
-    public static final int T__63=63;
-    public static final int T__64=64;
+    public static final int T__68=68;
+    public static final int T__69=69;
+    public static final int T__70=70;
+    public static final int T__71=71;
     public static final int AND=4;
     public static final int ARGLIST=5;
     public static final int ASSIGN=6;
     public static final int AVAN=7;
-    public static final int BOOLEAN=8;
-    public static final int COLOR=9;
-    public static final int COMMENT=10;
-    public static final int DIV=11;
-    public static final int DO=12;
-    public static final int ELSE=13;
-    public static final int ENDFUNC=14;
-    public static final int ENDIF=15;
-    public static final int ENDWHILE=16;
-    public static final int EQUAL=17;
-    public static final int ESC_SEQ=18;
-    public static final int ESTADOPINTAR=19;
-    public static final int FALSE=20;
-    public static final int FUNC=21;
-    public static final int FUNCALL=22;
-    public static final int GE=23;
-    public static final int GIRA=24;
-    public static final int GT=25;
-    public static final int ID=26;
-    public static final int IF=27;
-    public static final int INFRA=28;
-    public static final int INIROBOT=29;
-    public static final int INT=30;
-    public static final int LBRACK=31;
-    public static final int LE=32;
-    public static final int LIST_FUNCTIONS=33;
-    public static final int LIST_INSTR=34;
-    public static final int LPAREN=35;
-    public static final int LT=36;
-    public static final int MINUS=37;
-    public static final int MOD=38;
-    public static final int MUL=39;
-    public static final int NOBSTACLE=40;
-    public static final int NOT=41;
-    public static final int NOT_EQUAL=42;
-    public static final int OBSTACLE=43;
-    public static final int OR=44;
-    public static final int PARAMS=45;
-    public static final int PINTARCOLOR=46;
-    public static final int PLUS=47;
-    public static final int PREF=48;
-    public static final int PVALUE=49;
-    public static final int RBRACK=50;
-    public static final int READ=51;
-    public static final int RETRO=52;
-    public static final int RETURN=53;
-    public static final int SENTIR=54;
-    public static final int STRING=55;
-    public static final int THEN=56;
-    public static final int TRUE=57;
-    public static final int WHILE=58;
-    public static final int WRITE=59;
-    public static final int WS=60;
+    public static final int BOOL=8;
+    public static final int BOOLEAN=9;
+    public static final int CARACTERS=10;
+    public static final int CHOCAR=11;
+    public static final int COLOR=12;
+    public static final int COMMENT=13;
+    public static final int DISTANCIACOLOR=14;
+    public static final int DIV=15;
+    public static final int DO=16;
+    public static final int ELSE=17;
+    public static final int ENDFUNC=18;
+    public static final int ENDIF=19;
+    public static final int ENDWHILE=20;
+    public static final int ENTER=21;
+    public static final int EQUAL=22;
+    public static final int ESC_SEQ=23;
+    public static final int ESTADOPINTAR=24;
+    public static final int FALSE=25;
+    public static final int FUNC=26;
+    public static final int FUNCALL=27;
+    public static final int GE=28;
+    public static final int GIRA=29;
+    public static final int GT=30;
+    public static final int ID=31;
+    public static final int IF=32;
+    public static final int INFRA=33;
+    public static final int INIROBOT=34;
+    public static final int INT=35;
+    public static final int LBRACK=36;
+    public static final int LE=37;
+    public static final int LIST_FUNCTIONS=38;
+    public static final int LIST_INSTR=39;
+    public static final int LPAREN=40;
+    public static final int LT=41;
+    public static final int MINUS=42;
+    public static final int MIRAR=43;
+    public static final int MOD=44;
+    public static final int MUL=45;
+    public static final int NOBSTACLE=46;
+    public static final int NOT=47;
+    public static final int NOT_EQUAL=48;
+    public static final int OBSTACLE=49;
+    public static final int OR=50;
+    public static final int ORIENTACION=51;
+    public static final int PARAMS=52;
+    public static final int PINTARCOLOR=53;
+    public static final int PLUS=54;
+    public static final int PREF=55;
+    public static final int PVALUE=56;
+    public static final int RBRACK=57;
+    public static final int READ=58;
+    public static final int RETRO=59;
+    public static final int RETURN=60;
+    public static final int SENTIR=61;
+    public static final int STRING=62;
+    public static final int THEN=63;
+    public static final int TRUE=64;
+    public static final int WHILE=65;
+    public static final int WRITE=66;
+    public static final int WS=67;
 
     // delegates
     // delegators
@@ -86,15 +93,15 @@ public class AslLexer extends Lexer {
     public AslLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
     }
-    public String getGrammarFileName() { return "/home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g"; }
+    public String getGrammarFileName() { return "/home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g"; }
 
-    // $ANTLR start "T__61"
-    public final void mT__61() throws RecognitionException {
+    // $ANTLR start "T__68"
+    public final void mT__68() throws RecognitionException {
         try {
-            int _type = T__61;
+            int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:6:7: ( '&' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:6:9: '&'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:6:7: ( '&' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:6:9: '&'
             {
             match('&'); 
 
@@ -107,15 +114,15 @@ public class AslLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "T__61"
+    // $ANTLR end "T__68"
 
-    // $ANTLR start "T__62"
-    public final void mT__62() throws RecognitionException {
+    // $ANTLR start "T__69"
+    public final void mT__69() throws RecognitionException {
         try {
-            int _type = T__62;
+            int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:7:7: ( ')' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:7:9: ')'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:7:7: ( ')' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:7:9: ')'
             {
             match(')'); 
 
@@ -128,15 +135,15 @@ public class AslLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "T__62"
+    // $ANTLR end "T__69"
 
-    // $ANTLR start "T__63"
-    public final void mT__63() throws RecognitionException {
+    // $ANTLR start "T__70"
+    public final void mT__70() throws RecognitionException {
         try {
-            int _type = T__63;
+            int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:8:7: ( ',' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:8:9: ','
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:8:7: ( ',' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:8:9: ','
             {
             match(','); 
 
@@ -149,15 +156,15 @@ public class AslLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "T__63"
+    // $ANTLR end "T__70"
 
-    // $ANTLR start "T__64"
-    public final void mT__64() throws RecognitionException {
+    // $ANTLR start "T__71"
+    public final void mT__71() throws RecognitionException {
         try {
-            int _type = T__64;
+            int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:9:7: ( ';' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:9:9: ';'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:9:7: ( ';' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:9:9: ';'
             {
             match(';'); 
 
@@ -170,15 +177,84 @@ public class AslLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "T__64"
+    // $ANTLR end "T__71"
+
+    // $ANTLR start "ENTER"
+    public final void mENTER() throws RecognitionException {
+        try {
+            int _type = ENTER;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:193:7: ( 'int' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:193:9: 'int'
+            {
+            match("int"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "ENTER"
+
+    // $ANTLR start "BOOL"
+    public final void mBOOL() throws RecognitionException {
+        try {
+            int _type = BOOL;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:194:6: ( 'bool' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:194:8: 'bool'
+            {
+            match("bool"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "BOOL"
+
+    // $ANTLR start "CARACTERS"
+    public final void mCARACTERS() throws RecognitionException {
+        try {
+            int _type = CARACTERS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:195:11: ( 'string' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:195:13: 'string'
+            {
+            match("string"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "CARACTERS"
 
     // $ANTLR start "LPAREN"
     public final void mLPAREN() throws RecognitionException {
         try {
             int _type = LPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:179:8: ( '(' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:179:10: '('
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:196:8: ( '(' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:196:10: '('
             {
             match('('); 
 
@@ -198,8 +274,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = LBRACK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:180:8: ( '[' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:180:10: '['
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:197:8: ( '[' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:197:10: '['
             {
             match('['); 
 
@@ -219,8 +295,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = RBRACK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:181:8: ( ']' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:181:10: ']'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:198:8: ( ']' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:198:10: ']'
             {
             match(']'); 
 
@@ -240,8 +316,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:182:7: ( '=' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:182:9: '='
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:199:7: ( '=' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:199:9: '='
             {
             match('='); 
 
@@ -261,8 +337,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = NOT_EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:183:10: ( '!=' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:183:12: '!='
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:200:10: ( '!=' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:200:12: '!='
             {
             match("!="); 
 
@@ -284,8 +360,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:184:8: ( '<' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:184:10: '<'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:201:8: ( '<' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:201:10: '<'
             {
             match('<'); 
 
@@ -305,8 +381,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = LE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:185:8: ( '<=' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:185:10: '<='
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:202:8: ( '<=' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:202:10: '<='
             {
             match("<="); 
 
@@ -328,8 +404,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:186:8: ( '>' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:186:10: '>'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:203:8: ( '>' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:203:10: '>'
             {
             match('>'); 
 
@@ -349,8 +425,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = GE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:187:8: ( '>=' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:187:10: '>='
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:204:8: ( '>=' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:204:10: '>='
             {
             match(">="); 
 
@@ -372,8 +448,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:188:6: ( '+' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:188:8: '+'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:205:6: ( '+' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:205:8: '+'
             {
             match('+'); 
 
@@ -393,8 +469,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:189:7: ( '-' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:189:9: '-'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:206:7: ( '-' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:206:9: '-'
             {
             match('-'); 
 
@@ -414,8 +490,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MUL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:190:9: ( '*' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:190:11: '*'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:207:9: ( '*' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:207:11: '*'
             {
             match('*'); 
 
@@ -435,8 +511,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:191:9: ( '/' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:191:11: '/'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:208:9: ( '/' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:208:11: '/'
             {
             match('/'); 
 
@@ -456,8 +532,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MOD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:192:9: ( '%' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:192:11: '%'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:209:9: ( '%' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:209:11: '%'
             {
             match('%'); 
 
@@ -477,8 +553,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:193:9: ( 'not' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:193:11: 'not'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:210:9: ( 'not' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:210:11: 'not'
             {
             match("not"); 
 
@@ -500,8 +576,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:194:9: ( 'and' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:194:11: 'and'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:211:9: ( 'and' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:211:11: 'and'
             {
             match("and"); 
 
@@ -523,8 +599,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:195:8: ( 'or' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:195:10: 'or'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:212:8: ( 'or' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:212:10: 'or'
             {
             match("or"); 
 
@@ -546,8 +622,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = IF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:196:6: ( 'if' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:196:8: 'if'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:213:6: ( 'if' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:213:8: 'if'
             {
             match("if"); 
 
@@ -569,8 +645,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = THEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:197:6: ( 'then' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:197:8: 'then'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:214:6: ( 'then' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:214:8: 'then'
             {
             match("then"); 
 
@@ -592,8 +668,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ELSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:198:6: ( 'else' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:198:8: 'else'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:215:6: ( 'else' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:215:8: 'else'
             {
             match("else"); 
 
@@ -615,8 +691,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ENDIF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:199:7: ( 'endif' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:199:9: 'endif'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:216:7: ( 'endif' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:216:9: 'endif'
             {
             match("endif"); 
 
@@ -638,8 +714,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = WHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:200:7: ( 'while' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:200:9: 'while'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:217:7: ( 'while' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:217:9: 'while'
             {
             match("while"); 
 
@@ -661,8 +737,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = DO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:201:8: ( 'do' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:201:10: 'do'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:218:8: ( 'do' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:218:10: 'do'
             {
             match("do"); 
 
@@ -684,8 +760,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ENDWHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:202:9: ( 'endwhile' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:202:11: 'endwhile'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:219:9: ( 'endwhile' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:219:11: 'endwhile'
             {
             match("endwhile"); 
 
@@ -707,8 +783,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = FUNC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:203:6: ( 'func' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:203:8: 'func'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:220:6: ( 'func' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:220:8: 'func'
             {
             match("func"); 
 
@@ -730,8 +806,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ENDFUNC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:204:9: ( 'endfunc' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:204:11: 'endfunc'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:221:9: ( 'endfunc' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:221:11: 'endfunc'
             {
             match("endfunc"); 
 
@@ -753,8 +829,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = RETURN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:205:8: ( 'return' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:205:10: 'return'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:222:8: ( 'return' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:222:10: 'return'
             {
             match("return"); 
 
@@ -776,8 +852,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = READ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:206:6: ( 'read' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:206:8: 'read'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:223:6: ( 'read' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:223:8: 'read'
             {
             match("read"); 
 
@@ -799,8 +875,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = WRITE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:207:7: ( 'write' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:207:9: 'write'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:224:7: ( 'write' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:224:9: 'write'
             {
             match("write"); 
 
@@ -822,8 +898,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = TRUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:208:9: ( 'true' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:208:11: 'true'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:225:9: ( 'true' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:225:11: 'true'
             {
             match("true"); 
 
@@ -845,8 +921,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = FALSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:209:9: ( 'false' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:209:11: 'false'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:226:9: ( 'false' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:226:11: 'false'
             {
             match("false"); 
 
@@ -868,8 +944,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = INIROBOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:210:9: ( 'inirobot' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:210:11: 'inirobot'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:227:9: ( 'inirobot' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:227:11: 'inirobot'
             {
             match("inirobot"); 
 
@@ -891,8 +967,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = AVAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:211:6: ( 'avanca' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:211:8: 'avanca'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:228:6: ( 'avanca' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:228:8: 'avanca'
             {
             match("avanca"); 
 
@@ -914,8 +990,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = RETRO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:212:7: ( 'retrocedeix' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:212:9: 'retrocedeix'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:229:7: ( 'retrocedeix' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:229:9: 'retrocedeix'
             {
             match("retrocedeix"); 
 
@@ -937,8 +1013,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = NOBSTACLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:213:11: ( 'noobstacle' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:213:13: 'noobstacle'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:230:11: ( 'noobstacle' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:230:13: 'noobstacle'
             {
             match("noobstacle"); 
 
@@ -960,8 +1036,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = PINTARCOLOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:214:13: ( 'pinta' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:214:15: 'pinta'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:231:13: ( 'pinta' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:231:15: 'pinta'
             {
             match("pinta"); 
 
@@ -983,8 +1059,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = OBSTACLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:215:10: ( 'obstacle' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:215:12: 'obstacle'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:232:10: ( 'obstacle' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:232:12: 'obstacle'
             {
             match("obstacle"); 
 
@@ -1006,8 +1082,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = SENTIR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:216:8: ( 'sentir' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:216:10: 'sentir'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:233:8: ( 'sentir' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:233:10: 'sentir'
             {
             match("sentir"); 
 
@@ -1029,8 +1105,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = INFRA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:217:7: ( 'infrared' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:217:9: 'infrared'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:234:7: ( 'infrared' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:234:9: 'infrared'
             {
             match("infrared"); 
 
@@ -1047,13 +1123,105 @@ public class AslLexer extends Lexer {
     }
     // $ANTLR end "INFRA"
 
+    // $ANTLR start "CHOCAR"
+    public final void mCHOCAR() throws RecognitionException {
+        try {
+            int _type = CHOCAR;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:235:8: ( 'chocar' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:235:10: 'chocar'
+            {
+            match("chocar"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "CHOCAR"
+
+    // $ANTLR start "DISTANCIACOLOR"
+    public final void mDISTANCIACOLOR() throws RecognitionException {
+        try {
+            int _type = DISTANCIACOLOR;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:236:16: ( 'distanciacolor' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:236:18: 'distanciacolor'
+            {
+            match("distanciacolor"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "DISTANCIACOLOR"
+
+    // $ANTLR start "ORIENTACION"
+    public final void mORIENTACION() throws RecognitionException {
+        try {
+            int _type = ORIENTACION;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:237:13: ( 'orientacion' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:237:15: 'orientacion'
+            {
+            match("orientacion"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "ORIENTACION"
+
+    // $ANTLR start "MIRAR"
+    public final void mMIRAR() throws RecognitionException {
+        try {
+            int _type = MIRAR;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:238:7: ( 'mirar' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:238:9: 'mirar'
+            {
+            match("mirar"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "MIRAR"
+
     // $ANTLR start "GIRA"
     public final void mGIRA() throws RecognitionException {
         try {
             int _type = GIRA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:218:6: ( 'gira' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:218:8: 'gira'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:239:6: ( 'gira' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:239:8: 'gira'
             {
             match("gira"); 
 
@@ -1075,43 +1243,61 @@ public class AslLexer extends Lexer {
         try {
             int _type = COLOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:219:7: ( ( 'red' | 'green' | 'yellow' | 'blue' | 'black' | 'white' ) )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:219:9: ( 'red' | 'green' | 'yellow' | 'blue' | 'black' | 'white' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:7: ( ( 'black' | 'blue' | 'green' | 'cyan' | 'red' | 'magenta' | 'brown' | 'gray' | 'darkgray' | 'lightblue' | 'lightcyan' | 'lightred' | 'lightmagenta' | 'yellow' | 'white' ) )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:9: ( 'black' | 'blue' | 'green' | 'cyan' | 'red' | 'magenta' | 'brown' | 'gray' | 'darkgray' | 'lightblue' | 'lightcyan' | 'lightred' | 'lightmagenta' | 'yellow' | 'white' )
             {
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:219:9: ( 'red' | 'green' | 'yellow' | 'blue' | 'black' | 'white' )
-            int alt1=6;
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:9: ( 'black' | 'blue' | 'green' | 'cyan' | 'red' | 'magenta' | 'brown' | 'gray' | 'darkgray' | 'lightblue' | 'lightcyan' | 'lightred' | 'lightmagenta' | 'yellow' | 'white' )
+            int alt1=15;
             switch ( input.LA(1) ) {
-            case 'r':
+            case 'b':
                 {
-                alt1=1;
+                int LA1_1 = input.LA(2);
+
+                if ( (LA1_1=='l') ) {
+                    int LA1_10 = input.LA(3);
+
+                    if ( (LA1_10=='a') ) {
+                        alt1=1;
+                    }
+                    else if ( (LA1_10=='u') ) {
+                        alt1=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 1, 10, input);
+
+                        throw nvae;
+
+                    }
+                }
+                else if ( (LA1_1=='r') ) {
+                    alt1=7;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 1, 1, input);
+
+                    throw nvae;
+
+                }
                 }
                 break;
             case 'g':
                 {
-                alt1=2;
-                }
-                break;
-            case 'y':
-                {
-                alt1=3;
-                }
-                break;
-            case 'b':
-                {
-                int LA1_4 = input.LA(2);
+                int LA1_2 = input.LA(2);
 
-                if ( (LA1_4=='l') ) {
-                    int LA1_6 = input.LA(3);
+                if ( (LA1_2=='r') ) {
+                    int LA1_12 = input.LA(3);
 
-                    if ( (LA1_6=='u') ) {
-                        alt1=4;
+                    if ( (LA1_12=='e') ) {
+                        alt1=3;
                     }
-                    else if ( (LA1_6=='a') ) {
-                        alt1=5;
+                    else if ( (LA1_12=='a') ) {
+                        alt1=8;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 1, 6, input);
+                            new NoViableAltException("", 1, 12, input);
 
                         throw nvae;
 
@@ -1119,16 +1305,118 @@ public class AslLexer extends Lexer {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 1, 4, input);
+                        new NoViableAltException("", 1, 2, input);
 
                     throw nvae;
 
                 }
                 }
                 break;
-            case 'w':
+            case 'c':
+                {
+                alt1=4;
+                }
+                break;
+            case 'r':
+                {
+                alt1=5;
+                }
+                break;
+            case 'm':
                 {
                 alt1=6;
+                }
+                break;
+            case 'd':
+                {
+                alt1=9;
+                }
+                break;
+            case 'l':
+                {
+                int LA1_7 = input.LA(2);
+
+                if ( (LA1_7=='i') ) {
+                    int LA1_13 = input.LA(3);
+
+                    if ( (LA1_13=='g') ) {
+                        int LA1_18 = input.LA(4);
+
+                        if ( (LA1_18=='h') ) {
+                            int LA1_19 = input.LA(5);
+
+                            if ( (LA1_19=='t') ) {
+                                switch ( input.LA(6) ) {
+                                case 'b':
+                                    {
+                                    alt1=10;
+                                    }
+                                    break;
+                                case 'c':
+                                    {
+                                    alt1=11;
+                                    }
+                                    break;
+                                case 'r':
+                                    {
+                                    alt1=12;
+                                    }
+                                    break;
+                                case 'm':
+                                    {
+                                    alt1=13;
+                                    }
+                                    break;
+                                default:
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 1, 20, input);
+
+                                    throw nvae;
+
+                                }
+
+                            }
+                            else {
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 1, 19, input);
+
+                                throw nvae;
+
+                            }
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 1, 18, input);
+
+                            throw nvae;
+
+                        }
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 1, 13, input);
+
+                        throw nvae;
+
+                    }
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 1, 7, input);
+
+                    throw nvae;
+
+                }
+                }
+                break;
+            case 'y':
+                {
+                alt1=14;
+                }
+                break;
+            case 'w':
+                {
+                alt1=15;
                 }
                 break;
             default:
@@ -1141,43 +1429,7 @@ public class AslLexer extends Lexer {
 
             switch (alt1) {
                 case 1 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:219:10: 'red'
-                    {
-                    match("red"); 
-
-
-
-                    }
-                    break;
-                case 2 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:219:18: 'green'
-                    {
-                    match("green"); 
-
-
-
-                    }
-                    break;
-                case 3 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:219:28: 'yellow'
-                    {
-                    match("yellow"); 
-
-
-
-                    }
-                    break;
-                case 4 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:219:39: 'blue'
-                    {
-                    match("blue"); 
-
-
-
-                    }
-                    break;
-                case 5 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:219:48: 'black'
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:11: 'black'
                     {
                     match("black"); 
 
@@ -1185,8 +1437,125 @@ public class AslLexer extends Lexer {
 
                     }
                     break;
+                case 2 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:21: 'blue'
+                    {
+                    match("blue"); 
+
+
+
+                    }
+                    break;
+                case 3 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:30: 'green'
+                    {
+                    match("green"); 
+
+
+
+                    }
+                    break;
+                case 4 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:40: 'cyan'
+                    {
+                    match("cyan"); 
+
+
+
+                    }
+                    break;
+                case 5 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:49: 'red'
+                    {
+                    match("red"); 
+
+
+
+                    }
+                    break;
                 case 6 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:219:58: 'white'
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:57: 'magenta'
+                    {
+                    match("magenta"); 
+
+
+
+                    }
+                    break;
+                case 7 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:69: 'brown'
+                    {
+                    match("brown"); 
+
+
+
+                    }
+                    break;
+                case 8 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:79: 'gray'
+                    {
+                    match("gray"); 
+
+
+
+                    }
+                    break;
+                case 9 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:88: 'darkgray'
+                    {
+                    match("darkgray"); 
+
+
+
+                    }
+                    break;
+                case 10 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:101: 'lightblue'
+                    {
+                    match("lightblue"); 
+
+
+
+                    }
+                    break;
+                case 11 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:115: 'lightcyan'
+                    {
+                    match("lightcyan"); 
+
+
+
+                    }
+                    break;
+                case 12 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:129: 'lightred'
+                    {
+                    match("lightred"); 
+
+
+
+                    }
+                    break;
+                case 13 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:142: 'lightmagenta'
+                    {
+                    match("lightmagenta"); 
+
+
+
+                    }
+                    break;
+                case 14 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:159: 'yellow'
+                    {
+                    match("yellow"); 
+
+
+
+                    }
+                    break;
+                case 15 :
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:240:170: 'white'
                     {
                     match("white"); 
 
@@ -1214,10 +1583,10 @@ public class AslLexer extends Lexer {
         try {
             int _type = ESTADOPINTAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:220:14: ( ( 'up' | 'down' ) )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:220:16: ( 'up' | 'down' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:241:14: ( ( 'up' | 'down' ) )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:241:16: ( 'up' | 'down' )
             {
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:220:16: ( 'up' | 'down' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:241:16: ( 'up' | 'down' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1236,7 +1605,7 @@ public class AslLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:220:17: 'up'
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:241:17: 'up'
                     {
                     match("up"); 
 
@@ -1245,7 +1614,7 @@ public class AslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:220:24: 'down'
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:241:24: 'down'
                     {
                     match("down"); 
 
@@ -1273,8 +1642,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:221:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:221:8: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:242:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:242:8: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -1286,7 +1655,7 @@ public class AslLexer extends Lexer {
             }
 
 
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:221:32: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:242:32: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop3:
             do {
                 int alt3=2;
@@ -1299,7 +1668,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:
+            	    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
@@ -1336,10 +1705,10 @@ public class AslLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:222:6: ( ( '0' .. '9' )+ )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:222:8: ( '0' .. '9' )+
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:243:6: ( ( '0' .. '9' )+ )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:243:8: ( '0' .. '9' )+
             {
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:222:8: ( '0' .. '9' )+
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:243:8: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1353,7 +1722,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:
+            	    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
             	        input.consume();
@@ -1394,7 +1763,7 @@ public class AslLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:225:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:246:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1424,13 +1793,13 @@ public class AslLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:225:11: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:246:11: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                     {
                     match("//"); 
 
 
 
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:225:16: (~ ( '\\n' | '\\r' ) )*
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:246:16: (~ ( '\\n' | '\\r' ) )*
                     loop5:
                     do {
                         int alt5=2;
@@ -1443,7 +1812,7 @@ public class AslLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:
+                    	    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:
                     	    {
                     	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '\uFFFF') ) {
                     	        input.consume();
@@ -1464,7 +1833,7 @@ public class AslLexer extends Lexer {
                     } while (true);
 
 
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:225:30: ( '\\r' )?
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:246:30: ( '\\r' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -1473,7 +1842,7 @@ public class AslLexer extends Lexer {
                     }
                     switch (alt6) {
                         case 1 :
-                            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:225:30: '\\r'
+                            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:246:30: '\\r'
                             {
                             match('\r'); 
 
@@ -1490,13 +1859,13 @@ public class AslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:226:8: '/*' ( options {greedy=false; } : . )* '*/'
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:247:8: '/*' ( options {greedy=false; } : . )* '*/'
                     {
                     match("/*"); 
 
 
 
-                    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:226:13: ( options {greedy=false; } : . )*
+                    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:247:13: ( options {greedy=false; } : . )*
                     loop7:
                     do {
                         int alt7=2;
@@ -1521,7 +1890,7 @@ public class AslLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:226:41: .
+                    	    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:247:41: .
                     	    {
                     	    matchAny(); 
 
@@ -1558,12 +1927,12 @@ public class AslLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:230:9: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:230:12: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:251:9: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:251:12: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
             {
             match('\"'); 
 
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:230:16: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:251:16: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
             loop9:
             do {
                 int alt9=3;
@@ -1579,7 +1948,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:230:18: ESC_SEQ
+            	    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:251:18: ESC_SEQ
             	    {
             	    mESC_SEQ(); 
 
@@ -1587,7 +1956,7 @@ public class AslLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:230:28: ~ ( '\\\\' | '\"' )
+            	    // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:251:28: ~ ( '\\\\' | '\"' )
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -1624,8 +1993,8 @@ public class AslLexer extends Lexer {
     // $ANTLR start "ESC_SEQ"
     public final void mESC_SEQ() throws RecognitionException {
         try {
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:236:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:236:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:257:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:257:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
             {
             match('\\'); 
 
@@ -1654,8 +2023,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:239:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:239:8: ( ' ' | '\\t' | '\\r' | '\\n' )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:260:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:260:8: ( ' ' | '\\t' | '\\r' | '\\n' )
             {
             if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -1681,412 +2050,468 @@ public class AslLexer extends Lexer {
     // $ANTLR end "WS"
 
     public void mTokens() throws RecognitionException {
-        // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:8: ( T__61 | T__62 | T__63 | T__64 | LPAREN | LBRACK | RBRACK | EQUAL | NOT_EQUAL | LT | LE | GT | GE | PLUS | MINUS | MUL | DIV | MOD | NOT | AND | OR | IF | THEN | ELSE | ENDIF | WHILE | DO | ENDWHILE | FUNC | ENDFUNC | RETURN | READ | WRITE | TRUE | FALSE | INIROBOT | AVAN | RETRO | NOBSTACLE | PINTARCOLOR | OBSTACLE | SENTIR | INFRA | GIRA | COLOR | ESTADOPINTAR | ID | INT | COMMENT | STRING | WS )
-        int alt10=51;
+        // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:8: ( T__68 | T__69 | T__70 | T__71 | ENTER | BOOL | CARACTERS | LPAREN | LBRACK | RBRACK | EQUAL | NOT_EQUAL | LT | LE | GT | GE | PLUS | MINUS | MUL | DIV | MOD | NOT | AND | OR | IF | THEN | ELSE | ENDIF | WHILE | DO | ENDWHILE | FUNC | ENDFUNC | RETURN | READ | WRITE | TRUE | FALSE | INIROBOT | AVAN | RETRO | NOBSTACLE | PINTARCOLOR | OBSTACLE | SENTIR | INFRA | CHOCAR | DISTANCIACOLOR | ORIENTACION | MIRAR | GIRA | COLOR | ESTADOPINTAR | ID | INT | COMMENT | STRING | WS )
+        int alt10=58;
         alt10 = dfa10.predict(input);
         switch (alt10) {
             case 1 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:10: T__61
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:10: T__68
                 {
-                mT__61(); 
+                mT__68(); 
 
 
                 }
                 break;
             case 2 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:16: T__62
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:16: T__69
                 {
-                mT__62(); 
+                mT__69(); 
 
 
                 }
                 break;
             case 3 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:22: T__63
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:22: T__70
                 {
-                mT__63(); 
+                mT__70(); 
 
 
                 }
                 break;
             case 4 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:28: T__64
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:28: T__71
                 {
-                mT__64(); 
+                mT__71(); 
 
 
                 }
                 break;
             case 5 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:34: LPAREN
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:34: ENTER
+                {
+                mENTER(); 
+
+
+                }
+                break;
+            case 6 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:40: BOOL
+                {
+                mBOOL(); 
+
+
+                }
+                break;
+            case 7 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:45: CARACTERS
+                {
+                mCARACTERS(); 
+
+
+                }
+                break;
+            case 8 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:55: LPAREN
                 {
                 mLPAREN(); 
 
 
                 }
                 break;
-            case 6 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:41: LBRACK
+            case 9 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:62: LBRACK
                 {
                 mLBRACK(); 
 
 
                 }
                 break;
-            case 7 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:48: RBRACK
+            case 10 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:69: RBRACK
                 {
                 mRBRACK(); 
 
 
                 }
                 break;
-            case 8 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:55: EQUAL
+            case 11 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:76: EQUAL
                 {
                 mEQUAL(); 
 
 
                 }
                 break;
-            case 9 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:61: NOT_EQUAL
+            case 12 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:82: NOT_EQUAL
                 {
                 mNOT_EQUAL(); 
 
 
                 }
                 break;
-            case 10 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:71: LT
+            case 13 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:92: LT
                 {
                 mLT(); 
 
 
                 }
                 break;
-            case 11 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:74: LE
+            case 14 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:95: LE
                 {
                 mLE(); 
 
 
                 }
                 break;
-            case 12 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:77: GT
+            case 15 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:98: GT
                 {
                 mGT(); 
 
 
                 }
                 break;
-            case 13 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:80: GE
+            case 16 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:101: GE
                 {
                 mGE(); 
 
 
                 }
                 break;
-            case 14 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:83: PLUS
+            case 17 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:104: PLUS
                 {
                 mPLUS(); 
 
 
                 }
                 break;
-            case 15 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:88: MINUS
+            case 18 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:109: MINUS
                 {
                 mMINUS(); 
 
 
                 }
                 break;
-            case 16 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:94: MUL
+            case 19 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:115: MUL
                 {
                 mMUL(); 
 
 
                 }
                 break;
-            case 17 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:98: DIV
+            case 20 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:119: DIV
                 {
                 mDIV(); 
 
 
                 }
                 break;
-            case 18 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:102: MOD
+            case 21 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:123: MOD
                 {
                 mMOD(); 
 
 
                 }
                 break;
-            case 19 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:106: NOT
+            case 22 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:127: NOT
                 {
                 mNOT(); 
 
 
                 }
                 break;
-            case 20 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:110: AND
+            case 23 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:131: AND
                 {
                 mAND(); 
 
 
                 }
                 break;
-            case 21 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:114: OR
+            case 24 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:135: OR
                 {
                 mOR(); 
 
 
                 }
                 break;
-            case 22 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:117: IF
+            case 25 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:138: IF
                 {
                 mIF(); 
 
 
                 }
                 break;
-            case 23 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:120: THEN
+            case 26 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:141: THEN
                 {
                 mTHEN(); 
 
 
                 }
                 break;
-            case 24 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:125: ELSE
+            case 27 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:146: ELSE
                 {
                 mELSE(); 
 
 
                 }
                 break;
-            case 25 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:130: ENDIF
+            case 28 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:151: ENDIF
                 {
                 mENDIF(); 
 
 
                 }
                 break;
-            case 26 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:136: WHILE
+            case 29 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:157: WHILE
                 {
                 mWHILE(); 
 
 
                 }
                 break;
-            case 27 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:142: DO
+            case 30 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:163: DO
                 {
                 mDO(); 
 
 
                 }
                 break;
-            case 28 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:145: ENDWHILE
+            case 31 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:166: ENDWHILE
                 {
                 mENDWHILE(); 
 
 
                 }
                 break;
-            case 29 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:154: FUNC
+            case 32 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:175: FUNC
                 {
                 mFUNC(); 
 
 
                 }
                 break;
-            case 30 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:159: ENDFUNC
+            case 33 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:180: ENDFUNC
                 {
                 mENDFUNC(); 
 
 
                 }
                 break;
-            case 31 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:167: RETURN
+            case 34 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:188: RETURN
                 {
                 mRETURN(); 
 
 
                 }
                 break;
-            case 32 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:174: READ
+            case 35 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:195: READ
                 {
                 mREAD(); 
 
 
                 }
                 break;
-            case 33 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:179: WRITE
+            case 36 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:200: WRITE
                 {
                 mWRITE(); 
 
 
                 }
                 break;
-            case 34 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:185: TRUE
+            case 37 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:206: TRUE
                 {
                 mTRUE(); 
 
 
                 }
                 break;
-            case 35 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:190: FALSE
+            case 38 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:211: FALSE
                 {
                 mFALSE(); 
 
 
                 }
                 break;
-            case 36 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:196: INIROBOT
+            case 39 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:217: INIROBOT
                 {
                 mINIROBOT(); 
 
 
                 }
                 break;
-            case 37 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:205: AVAN
+            case 40 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:226: AVAN
                 {
                 mAVAN(); 
 
 
                 }
                 break;
-            case 38 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:210: RETRO
+            case 41 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:231: RETRO
                 {
                 mRETRO(); 
 
 
                 }
                 break;
-            case 39 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:216: NOBSTACLE
+            case 42 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:237: NOBSTACLE
                 {
                 mNOBSTACLE(); 
 
 
                 }
                 break;
-            case 40 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:226: PINTARCOLOR
+            case 43 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:247: PINTARCOLOR
                 {
                 mPINTARCOLOR(); 
 
 
                 }
                 break;
-            case 41 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:238: OBSTACLE
+            case 44 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:259: OBSTACLE
                 {
                 mOBSTACLE(); 
 
 
                 }
                 break;
-            case 42 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:247: SENTIR
+            case 45 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:268: SENTIR
                 {
                 mSENTIR(); 
 
 
                 }
                 break;
-            case 43 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:254: INFRA
+            case 46 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:275: INFRA
                 {
                 mINFRA(); 
 
 
                 }
                 break;
-            case 44 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:260: GIRA
+            case 47 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:281: CHOCAR
+                {
+                mCHOCAR(); 
+
+
+                }
+                break;
+            case 48 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:288: DISTANCIACOLOR
+                {
+                mDISTANCIACOLOR(); 
+
+
+                }
+                break;
+            case 49 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:303: ORIENTACION
+                {
+                mORIENTACION(); 
+
+
+                }
+                break;
+            case 50 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:315: MIRAR
+                {
+                mMIRAR(); 
+
+
+                }
+                break;
+            case 51 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:321: GIRA
                 {
                 mGIRA(); 
 
 
                 }
                 break;
-            case 45 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:265: COLOR
+            case 52 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:326: COLOR
                 {
                 mCOLOR(); 
 
 
                 }
                 break;
-            case 46 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:271: ESTADOPINTAR
+            case 53 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:332: ESTADOPINTAR
                 {
                 mESTADOPINTAR(); 
 
 
                 }
                 break;
-            case 47 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:284: ID
+            case 54 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:345: ID
                 {
                 mID(); 
 
 
                 }
                 break;
-            case 48 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:287: INT
+            case 55 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:348: INT
                 {
                 mINT(); 
 
 
                 }
                 break;
-            case 49 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:291: COMMENT
+            case 56 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:352: COMMENT
                 {
                 mCOMMENT(); 
 
 
                 }
                 break;
-            case 50 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:299: STRING
+            case 57 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:360: STRING
                 {
                 mSTRING(); 
 
 
                 }
                 break;
-            case 51 :
-                // /home/jaumevera/Documents/UNI/Q10/CL/RoboBASIC/src/parser/Asl.g:1:306: WS
+            case 58 :
+                // /home/jaumevera/Documents/UNI/Q10/CL/LeJOS/src/parser/Asl.g:1:367: WS
                 {
                 mWS(); 
 
@@ -2101,261 +2526,380 @@ public class AslLexer extends Lexer {
 
     protected DFA10 dfa10 = new DFA10(this);
     static final String DFA10_eotS =
-        "\12\uffff\1\46\1\50\3\uffff\1\52\1\uffff\20\41\12\uffff\3\41\1\107"+
-        "\1\41\1\111\7\41\1\123\11\41\1\140\1\141\1\41\1\143\1\41\1\uffff"+
-        "\1\41\1\uffff\11\41\1\uffff\4\41\1\167\7\41\2\uffff\1\41\1\uffff"+
-        "\4\41\1\u0084\1\u0085\1\u0086\6\41\1\140\1\u008d\3\41\1\u0091\1"+
-        "\uffff\2\41\1\u0094\2\41\1\167\6\41\3\uffff\1\u009d\2\41\1\u00a0"+
-        "\1\167\1\u00a1\1\uffff\1\u00a2\2\41\1\uffff\1\u00a5\1\41\1\uffff"+
-        "\1\167\1\41\1\167\1\41\1\u00a9\3\41\1\uffff\2\41\3\uffff\1\u00af"+
-        "\1\41\1\uffff\1\u00b1\1\167\1\41\1\uffff\4\41\1\u00b7\1\uffff\1"+
-        "\41\1\uffff\1\41\1\u00ba\1\u00bb\1\u00bc\1\u00bd\1\uffff\2\41\4"+
-        "\uffff\1\41\1\u00c1\1\41\1\uffff\1\u00c3\1\uffff";
+        "\5\uffff\3\44\5\uffff\1\60\1\62\3\uffff\1\64\1\uffff\20\44\4\uffff"+
+        "\1\44\1\123\5\44\6\uffff\3\44\1\137\7\44\1\150\16\44\1\172\1\173"+
+        "\2\44\1\uffff\6\44\1\u0084\1\44\1\u0086\2\44\1\uffff\10\44\1\uffff"+
+        "\6\44\1\u009b\12\44\2\uffff\2\44\1\u00a8\1\44\1\u009b\3\44\1\uffff"+
+        "\1\44\1\uffff\3\44\1\u00b1\1\u00b2\1\u00b3\6\44\1\172\2\44\1\u00bc"+
+        "\3\44\1\u00c0\1\uffff\2\44\1\u009b\2\44\1\u00c5\1\44\1\u009b\4\44"+
+        "\1\uffff\2\u009b\6\44\3\uffff\1\u00d1\2\44\1\u00d4\1\u009b\1\u00d5"+
+        "\2\44\1\uffff\1\u00d8\2\44\1\uffff\1\u00db\1\44\1\u00dd\1\44\1\uffff"+
+        "\1\u009b\4\44\1\u00e6\1\u00e7\1\44\1\u00e9\2\44\1\uffff\2\44\2\uffff"+
+        "\2\44\1\uffff\1\u00f0\1\44\1\uffff\1\u00f2\1\uffff\5\44\1\u009b"+
+        "\2\44\2\uffff\1\44\1\uffff\3\44\1\u00fe\2\44\1\uffff\1\44\1\uffff"+
+        "\1\u009b\4\44\1\u0106\1\u0107\2\44\1\u010a\1\u010b\1\uffff\1\44"+
+        "\1\u009b\3\44\1\u009b\1\44\2\uffff\2\44\2\uffff\2\44\2\u009b\1\44"+
+        "\1\u0116\4\44\1\uffff\1\u011b\1\44\1\u011d\1\44\1\uffff\1\44\1\uffff"+
+        "\1\u009b\1\44\1\u0121\1\uffff";
     static final String DFA10_eofS =
-        "\u00c4\uffff";
+        "\u0122\uffff";
     static final String DFA10_minS =
-        "\1\11\11\uffff\2\75\3\uffff\1\52\1\uffff\1\157\1\156\1\142\1\146"+
-        "\1\150\1\154\1\150\1\157\1\141\1\145\1\151\1\145\1\151\1\145\1\154"+
-        "\1\160\12\uffff\1\157\1\144\1\141\1\60\1\163\1\60\1\146\1\145\1"+
-        "\165\1\163\1\144\2\151\1\60\1\156\1\154\1\141\2\156\1\162\1\145"+
-        "\1\154\1\141\2\60\1\142\1\60\1\156\1\uffff\1\164\1\uffff\2\162\1"+
-        "\156\2\145\1\146\1\154\1\164\1\156\1\uffff\1\143\1\163\1\162\1\144"+
-        "\1\60\2\164\1\141\1\145\1\154\1\145\1\143\2\uffff\1\163\1\uffff"+
-        "\1\143\1\141\1\157\1\141\3\60\1\146\1\150\1\165\3\145\2\60\1\145"+
-        "\1\162\1\157\1\60\1\uffff\1\141\1\151\1\60\1\156\1\157\1\60\1\153"+
-        "\1\164\1\141\1\143\1\142\1\162\3\uffff\1\60\1\151\1\156\3\60\1\uffff"+
-        "\1\60\1\156\1\143\1\uffff\1\60\1\162\1\uffff\1\60\1\167\1\60\1\141"+
-        "\1\60\1\154\1\157\1\145\1\uffff\1\154\1\143\3\uffff\1\60\1\145\1"+
-        "\uffff\2\60\1\143\1\uffff\1\145\1\164\1\144\1\145\1\60\1\uffff\1"+
-        "\144\1\uffff\1\154\4\60\1\uffff\2\145\4\uffff\1\151\1\60\1\170\1"+
-        "\uffff\1\60\1\uffff";
+        "\1\11\4\uffff\1\146\1\154\1\145\5\uffff\2\75\3\uffff\1\52\1\uffff"+
+        "\1\157\1\156\1\142\1\150\1\154\1\150\2\141\1\145\1\151\1\150\1\141"+
+        "\2\151\1\145\1\160\4\uffff\1\146\1\60\1\157\1\141\1\157\1\162\1"+
+        "\156\6\uffff\1\157\1\144\1\141\1\60\1\163\1\145\1\165\1\163\1\144"+
+        "\2\151\1\60\1\163\1\162\1\156\1\154\1\141\1\156\1\157\1\141\1\162"+
+        "\1\147\1\162\1\141\1\147\1\154\2\60\2\162\1\uffff\1\154\1\143\1"+
+        "\145\1\167\1\151\1\164\1\60\1\142\1\60\1\156\1\145\1\uffff\1\164"+
+        "\1\156\2\145\1\146\1\154\1\164\1\156\1\uffff\1\164\1\153\1\143\1"+
+        "\163\1\162\1\144\1\60\1\164\1\143\1\156\1\141\1\145\1\141\1\145"+
+        "\1\171\1\150\1\154\2\uffff\1\157\1\141\1\60\1\153\1\60\2\156\1\151"+
+        "\1\uffff\1\163\1\uffff\1\143\1\156\1\141\3\60\1\146\1\150\1\165"+
+        "\3\145\1\60\1\141\1\147\1\60\1\145\1\162\1\157\1\60\1\uffff\2\141"+
+        "\1\60\1\162\1\156\1\60\1\156\1\60\1\164\1\157\1\142\1\162\1\uffff"+
+        "\2\60\1\147\1\162\1\164\1\141\1\164\1\143\3\uffff\1\60\1\151\1\156"+
+        "\3\60\1\156\1\162\1\uffff\1\60\1\156\1\143\1\uffff\1\60\1\162\1"+
+        "\60\1\164\1\uffff\1\60\1\142\1\167\1\157\1\145\2\60\1\141\1\60\1"+
+        "\141\1\154\1\uffff\1\154\1\143\2\uffff\1\143\1\141\1\uffff\1\60"+
+        "\1\145\1\uffff\1\60\1\uffff\1\141\1\154\1\171\1\145\1\141\1\60\1"+
+        "\164\1\144\2\uffff\1\143\1\uffff\1\143\2\145\1\60\1\151\1\171\1"+
+        "\uffff\1\144\1\uffff\1\60\1\165\1\141\1\144\1\147\2\60\1\154\1\151"+
+        "\2\60\1\uffff\1\141\1\60\2\145\1\156\1\60\1\145\2\uffff\1\145\1"+
+        "\157\2\uffff\1\143\1\151\2\60\1\156\1\60\1\156\1\157\1\170\1\164"+
+        "\1\uffff\1\60\1\154\1\60\1\141\1\uffff\1\157\1\uffff\1\60\1\162"+
+        "\1\60\1\uffff";
     static final String DFA10_maxS =
-        "\1\172\11\uffff\2\75\3\uffff\1\57\1\uffff\1\157\1\166\1\162\1\156"+
-        "\1\162\1\156\1\162\1\157\1\165\1\145\1\151\1\145\1\162\1\145\1\154"+
-        "\1\160\12\uffff\1\164\1\144\1\141\1\172\1\163\1\172\1\151\1\145"+
-        "\1\165\1\163\1\144\2\151\1\172\1\156\1\154\1\164\2\156\1\162\1\145"+
-        "\1\154\1\165\2\172\1\142\1\172\1\156\1\uffff\1\164\1\uffff\2\162"+
-        "\1\156\2\145\1\167\2\164\1\156\1\uffff\1\143\1\163\1\165\1\144\1"+
-        "\172\2\164\1\141\1\145\1\154\1\145\1\143\2\uffff\1\163\1\uffff\1"+
-        "\143\1\141\1\157\1\141\3\172\1\146\1\150\1\165\3\145\2\172\1\145"+
-        "\1\162\1\157\1\172\1\uffff\1\141\1\151\1\172\1\156\1\157\1\172\1"+
-        "\153\1\164\1\141\1\143\1\142\1\162\3\uffff\1\172\1\151\1\156\3\172"+
-        "\1\uffff\1\172\1\156\1\143\1\uffff\1\172\1\162\1\uffff\1\172\1\167"+
-        "\1\172\1\141\1\172\1\154\1\157\1\145\1\uffff\1\154\1\143\3\uffff"+
-        "\1\172\1\145\1\uffff\2\172\1\143\1\uffff\1\145\1\164\1\144\1\145"+
-        "\1\172\1\uffff\1\144\1\uffff\1\154\4\172\1\uffff\2\145\4\uffff\1"+
-        "\151\1\172\1\170\1\uffff\1\172\1\uffff";
+        "\1\172\4\uffff\1\156\1\162\1\164\5\uffff\2\75\3\uffff\1\57\1\uffff"+
+        "\1\157\1\166\2\162\1\156\1\162\1\157\1\165\1\145\1\151\1\171\1\151"+
+        "\1\162\1\151\1\145\1\160\4\uffff\1\164\1\172\1\157\1\165\1\157\1"+
+        "\162\1\156\6\uffff\1\164\1\144\1\141\1\172\1\163\1\145\1\165\1\163"+
+        "\1\144\2\151\1\172\1\163\1\162\1\156\1\154\1\164\1\156\1\157\1\141"+
+        "\1\162\1\147\1\162\1\145\1\147\1\154\2\172\2\162\1\uffff\1\154\1"+
+        "\143\1\145\1\167\1\151\1\164\1\172\1\142\1\172\1\156\1\145\1\uffff"+
+        "\1\164\1\156\2\145\1\167\2\164\1\156\1\uffff\1\164\1\153\1\143\1"+
+        "\163\1\165\1\144\1\172\1\164\1\143\1\156\1\141\1\145\1\141\1\145"+
+        "\1\171\1\150\1\154\2\uffff\1\157\1\141\1\172\1\153\1\172\2\156\1"+
+        "\151\1\uffff\1\163\1\uffff\1\143\1\156\1\141\3\172\1\146\1\150\1"+
+        "\165\3\145\1\172\1\141\1\147\1\172\1\145\1\162\1\157\1\172\1\uffff"+
+        "\2\141\1\172\1\162\1\156\1\172\1\156\1\172\1\164\1\157\1\142\1\162"+
+        "\1\uffff\2\172\1\147\1\162\1\164\1\141\1\164\1\143\3\uffff\1\172"+
+        "\1\151\1\156\3\172\1\156\1\162\1\uffff\1\172\1\156\1\143\1\uffff"+
+        "\1\172\1\162\1\172\1\164\1\uffff\1\172\1\162\1\167\1\157\1\145\2"+
+        "\172\1\141\1\172\1\141\1\154\1\uffff\1\154\1\143\2\uffff\1\143\1"+
+        "\141\1\uffff\1\172\1\145\1\uffff\1\172\1\uffff\1\141\1\154\1\171"+
+        "\1\145\1\141\1\172\1\164\1\144\2\uffff\1\143\1\uffff\1\143\2\145"+
+        "\1\172\1\151\1\171\1\uffff\1\144\1\uffff\1\172\1\165\1\141\1\144"+
+        "\1\147\2\172\1\154\1\151\2\172\1\uffff\1\141\1\172\2\145\1\156\1"+
+        "\172\1\145\2\uffff\1\145\1\157\2\uffff\1\143\1\151\2\172\1\156\1"+
+        "\172\1\156\1\157\1\170\1\164\1\uffff\1\172\1\154\1\172\1\141\1\uffff"+
+        "\1\157\1\uffff\1\172\1\162\1\172\1\uffff";
     static final String DFA10_acceptS =
-        "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\2\uffff\1\16\1\17"+
-        "\1\20\1\uffff\1\22\20\uffff\1\57\1\60\1\62\1\63\1\13\1\12\1\15\1"+
-        "\14\1\61\1\21\34\uffff\1\25\1\uffff\1\26\11\uffff\1\33\14\uffff"+
-        "\1\56\1\23\1\uffff\1\24\23\uffff\1\55\14\uffff\1\27\1\42\1\30\6"+
-        "\uffff\1\35\3\uffff\1\40\2\uffff\1\54\10\uffff\1\31\2\uffff\1\32"+
-        "\1\41\1\43\2\uffff\1\50\3\uffff\1\45\5\uffff\1\37\1\uffff\1\52\5"+
-        "\uffff\1\36\2\uffff\1\51\1\44\1\53\1\34\3\uffff\1\47\1\uffff\1\46";
+        "\1\uffff\1\1\1\2\1\3\1\4\3\uffff\1\10\1\11\1\12\1\13\1\14\2\uffff"+
+        "\1\21\1\22\1\23\1\uffff\1\25\20\uffff\1\66\1\67\1\71\1\72\7\uffff"+
+        "\1\16\1\15\1\20\1\17\1\70\1\24\36\uffff\1\31\13\uffff\1\30\10\uffff"+
+        "\1\36\21\uffff\1\65\1\5\10\uffff\1\26\1\uffff\1\27\24\uffff\1\64"+
+        "\14\uffff\1\6\10\uffff\1\32\1\45\1\33\10\uffff\1\40\3\uffff\1\43"+
+        "\4\uffff\1\63\13\uffff\1\34\2\uffff\1\35\1\44\2\uffff\1\46\2\uffff"+
+        "\1\53\1\uffff\1\62\10\uffff\1\7\1\55\1\uffff\1\50\6\uffff\1\42\1"+
+        "\uffff\1\57\13\uffff\1\41\7\uffff\1\47\1\56\2\uffff\1\54\1\37\12"+
+        "\uffff\1\52\4\uffff\1\61\1\uffff\1\51\3\uffff\1\60";
     static final String DFA10_specialS =
-        "\u00c4\uffff}>";
+        "\u0122\uffff}>";
     static final String[] DFA10_transitionS = {
-            "\2\44\2\uffff\1\44\22\uffff\1\44\1\11\1\43\2\uffff\1\20\1\1"+
-            "\1\uffff\1\5\1\2\1\16\1\14\1\3\1\15\1\uffff\1\17\12\42\1\uffff"+
-            "\1\4\1\12\1\10\1\13\2\uffff\32\41\1\6\1\uffff\1\7\1\uffff\1"+
-            "\41\1\uffff\1\22\1\37\1\41\1\30\1\26\1\31\1\35\1\41\1\24\4\41"+
-            "\1\21\1\23\1\33\1\41\1\32\1\34\1\25\1\40\1\41\1\27\1\41\1\36"+
-            "\1\41",
+            "\2\47\2\uffff\1\47\22\uffff\1\47\1\14\1\46\2\uffff\1\23\1\1"+
+            "\1\uffff\1\10\1\2\1\21\1\17\1\3\1\20\1\uffff\1\22\12\45\1\uffff"+
+            "\1\4\1\15\1\13\1\16\2\uffff\32\44\1\11\1\uffff\1\12\1\uffff"+
+            "\1\44\1\uffff\1\25\1\6\1\36\1\32\1\30\1\33\1\40\1\44\1\5\2\44"+
+            "\1\41\1\37\1\24\1\26\1\35\1\44\1\34\1\7\1\27\1\43\1\44\1\31"+
+            "\1\44\1\42\1\44",
+            "",
+            "",
+            "",
+            "",
+            "\1\51\7\uffff\1\50",
+            "\1\53\2\uffff\1\52\2\uffff\1\54",
+            "\1\56\16\uffff\1\55",
             "",
             "",
             "",
             "",
             "",
+            "\1\57",
+            "\1\61",
             "",
             "",
             "",
+            "\1\63\4\uffff\1\63",
             "",
-            "\1\45",
-            "\1\47",
-            "",
-            "",
-            "",
-            "\1\51\4\uffff\1\51",
-            "",
-            "\1\53",
-            "\1\54\7\uffff\1\55",
-            "\1\57\17\uffff\1\56",
-            "\1\60\7\uffff\1\61",
-            "\1\62\11\uffff\1\63",
-            "\1\64\1\uffff\1\65",
-            "\1\66\11\uffff\1\67",
-            "\1\70",
-            "\1\72\23\uffff\1\71",
-            "\1\73",
-            "\1\74",
-            "\1\75",
-            "\1\76\10\uffff\1\77",
-            "\1\100",
-            "\1\101",
-            "\1\102",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\104\4\uffff\1\103",
+            "\1\65",
+            "\1\66\7\uffff\1\67",
+            "\1\71\17\uffff\1\70",
+            "\1\72\11\uffff\1\73",
+            "\1\74\1\uffff\1\75",
+            "\1\76\11\uffff\1\77",
+            "\1\102\7\uffff\1\101\5\uffff\1\100",
+            "\1\104\23\uffff\1\103",
             "\1\105",
             "\1\106",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\110",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\113\2\uffff\1\112",
-            "\1\114",
+            "\1\107\20\uffff\1\110",
+            "\1\112\7\uffff\1\111",
+            "\1\113\10\uffff\1\114",
             "\1\115",
             "\1\116",
             "\1\117",
-            "\1\120",
-            "\1\121",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\26\41\1\122\3\41",
+            "",
+            "",
+            "",
+            "",
+            "\1\122\2\uffff\1\121\12\uffff\1\120",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\124",
-            "\1\125",
-            "\1\127\2\uffff\1\130\17\uffff\1\126",
+            "\1\125\23\uffff\1\126",
+            "\1\127",
+            "\1\130",
             "\1\131",
-            "\1\132",
-            "\1\133",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\133\4\uffff\1\132",
             "\1\134",
             "\1\135",
-            "\1\137\23\uffff\1\136",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1\136\21\44",
+            "\1\140",
+            "\1\141",
             "\1\142",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\143",
             "\1\144",
-            "",
             "\1\145",
-            "",
             "\1\146",
-            "\1\147",
-            "\1\150",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\26\44\1\147\3\44",
             "\1\151",
             "\1\152",
-            "\1\155\2\uffff\1\153\15\uffff\1\154",
-            "\1\156\7\uffff\1\157",
+            "\1\153",
+            "\1\154",
+            "\1\156\2\uffff\1\157\17\uffff\1\155",
             "\1\160",
             "\1\161",
-            "",
             "\1\162",
             "\1\163",
-            "\1\165\2\uffff\1\164",
-            "\1\166",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\164",
+            "\1\165",
+            "\1\167\3\uffff\1\166",
             "\1\170",
             "\1\171",
-            "\1\172",
-            "\1\173",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\174",
             "\1\175",
+            "",
             "\1\176",
-            "",
-            "",
             "\1\177",
-            "",
             "\1\u0080",
             "\1\u0081",
             "\1\u0082",
             "\1\u0083",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u0085",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u0087",
             "\1\u0088",
+            "",
             "\1\u0089",
             "\1\u008a",
             "\1\u008b",
             "\1\u008c",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u008e",
-            "\1\u008f",
-            "\1\u0090",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "",
+            "\1\u008f\2\uffff\1\u008d\15\uffff\1\u008e",
+            "\1\u0090\7\uffff\1\u0091",
             "\1\u0092",
             "\1\u0093",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
+            "\1\u0094",
             "\1\u0095",
             "\1\u0096",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u0097",
-            "\1\u0098",
-            "\1\u0099",
+            "\1\u0099\2\uffff\1\u0098",
             "\1\u009a",
-            "\1\u009b",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u009c",
-            "",
-            "",
-            "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u009d",
             "\1\u009e",
             "\1\u009f",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00a0",
+            "\1\u00a1",
+            "\1\u00a2",
             "\1\u00a3",
             "\1\u00a4",
+            "\1\u00a5",
             "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
             "\1\u00a6",
-            "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "\1\u00a7",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u00a8",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00a9",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u00aa",
             "\1\u00ab",
             "\1\u00ac",
             "",
             "\1\u00ad",
+            "",
             "\1\u00ae",
-            "",
-            "",
-            "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00af",
             "\1\u00b0",
-            "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u00b2",
-            "",
-            "\1\u00b3",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u00b4",
             "\1\u00b5",
             "\1\u00b6",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "",
+            "\1\u00b7",
             "\1\u00b8",
-            "",
             "\1\u00b9",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00ba",
+            "\1\u00bb",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00bd",
             "\1\u00be",
             "\1\u00bf",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
-            "",
-            "",
-            "",
-            "\1\u00c0",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00c1",
             "\1\u00c2",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00c3",
+            "\1\u00c4",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00c6",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00c7",
+            "\1\u00c8",
+            "\1\u00c9",
+            "\1\u00ca",
             "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00cb",
+            "\1\u00cc",
+            "\1\u00cd",
+            "\1\u00ce",
+            "\1\u00cf",
+            "\1\u00d0",
+            "",
+            "",
+            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00d2",
+            "\1\u00d3",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00d6",
+            "\1\u00d7",
+            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00d9",
+            "\1\u00da",
+            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00dc",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00de",
+            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00df\1\u00e0\11\uffff\1\u00e2\4\uffff\1\u00e1",
+            "\1\u00e3",
+            "\1\u00e4",
+            "\1\u00e5",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00e8",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00ea",
+            "\1\u00eb",
+            "",
+            "\1\u00ec",
+            "\1\u00ed",
+            "",
+            "",
+            "\1\u00ee",
+            "\1\u00ef",
+            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00f1",
+            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "",
+            "\1\u00f3",
+            "\1\u00f4",
+            "\1\u00f5",
+            "\1\u00f6",
+            "\1\u00f7",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00f8",
+            "\1\u00f9",
+            "",
+            "",
+            "\1\u00fa",
+            "",
+            "\1\u00fb",
+            "\1\u00fc",
+            "\1\u00fd",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u00ff",
+            "\1\u0100",
+            "",
+            "\1\u0101",
+            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u0102",
+            "\1\u0103",
+            "\1\u0104",
+            "\1\u0105",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u0108",
+            "\1\u0109",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "",
+            "\1\u010c",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u010d",
+            "\1\u010e",
+            "\1\u010f",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u0110",
+            "",
+            "",
+            "\1\u0111",
+            "\1\u0112",
+            "",
+            "",
+            "\1\u0113",
+            "\1\u0114",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u0115",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u0117",
+            "\1\u0118",
+            "\1\u0119",
+            "\1\u011a",
+            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u011c",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u011e",
+            "",
+            "\1\u011f",
+            "",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\u0120",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             ""
     };
 
@@ -2389,7 +2933,7 @@ public class AslLexer extends Lexer {
             this.transition = DFA10_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__61 | T__62 | T__63 | T__64 | LPAREN | LBRACK | RBRACK | EQUAL | NOT_EQUAL | LT | LE | GT | GE | PLUS | MINUS | MUL | DIV | MOD | NOT | AND | OR | IF | THEN | ELSE | ENDIF | WHILE | DO | ENDWHILE | FUNC | ENDFUNC | RETURN | READ | WRITE | TRUE | FALSE | INIROBOT | AVAN | RETRO | NOBSTACLE | PINTARCOLOR | OBSTACLE | SENTIR | INFRA | GIRA | COLOR | ESTADOPINTAR | ID | INT | COMMENT | STRING | WS );";
+            return "1:1: Tokens : ( T__68 | T__69 | T__70 | T__71 | ENTER | BOOL | CARACTERS | LPAREN | LBRACK | RBRACK | EQUAL | NOT_EQUAL | LT | LE | GT | GE | PLUS | MINUS | MUL | DIV | MOD | NOT | AND | OR | IF | THEN | ELSE | ENDIF | WHILE | DO | ENDWHILE | FUNC | ENDFUNC | RETURN | READ | WRITE | TRUE | FALSE | INIROBOT | AVAN | RETRO | NOBSTACLE | PINTARCOLOR | OBSTACLE | SENTIR | INFRA | CHOCAR | DISTANCIACOLOR | ORIENTACION | MIRAR | GIRA | COLOR | ESTADOPINTAR | ID | INT | COMMENT | STRING | WS );";
         }
     }
  

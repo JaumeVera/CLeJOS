@@ -90,10 +90,11 @@ public class Stack {
      * @param name The name of the variable
      * @param value The value of the variable
      */
-    public void defineVariable(String name, Data value) {
+    public boolean defineVariable(String name, Data value) {
         Data d = CurrentAR.get(name);
-        if (d == null) CurrentAR.put(name, value); // New definition
-        else d.setData(value); // Use the previous data 
+        if (d == null){ CurrentAR.put(name, value); return true;} // New definition
+        else d.setData(value); // Use the previous data
+        return false;
     }
 
     /** Gets the value of the variable. The value is represented as

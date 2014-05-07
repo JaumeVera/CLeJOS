@@ -71,13 +71,15 @@ params	: '(' paramlist? ')' -> ^(PARAMS paramlist?)
 // Parameters are separated by commas
 paramlist: param (','! param)*
         ;
-
+        
 // Parameters with & as prefix are passed by reference
 // Only one node with the name of the parameter is created
-param   :   '&' id=ID -> ^(PREF[$id,$id.text])
-        |   id=ID -> ^(PVALUE[$id,$id.text])
+param   :   ptype ('&' id = ID -> ^(PREF[$id,$id.text])
+		   | id = ID -> ^(PVALUE[$id,$id.text]))
         ;
-
+        
+ptype	: tipus^;
+        
 // A list of instructions, all of them gouped in a subtree
 block_instructions
         :	 instruction (';' instruction)*
@@ -104,23 +106,23 @@ special_instruction
 	|	NOBSTACLE^ COLOR (','! COLOR)?
 	|	GIRA^ expr
 	|	PINTARCOLOR^ ESTADOPINTAR
-	|	OBSTACLE^ expr ','! expr ','! expr ','! expr ','! COLOR ','! COLOR	
+	|	OBSTACLE^ expr ','! expr ','! expr ','! expr ','! COLOR ','! COLOR
 	|	sensors
 	;
 
 sensors
 	:	SENTIR^
 	|	INFRA^
-	|	CHOCAR
+	|	CHOCAR^
 	|	DISTANCIACOLOR^ COLOR
 	|	ORIENTACION
 	|	MIRAR ^ expr
 	;
-  
+
 // Assignment
 assign	:	idtypes eq=EQUAL expr -> ^(ASSIGN[$eq,":="] idtypes expr expr?)
         ;
-
+        
 // Assignment ids
 idtypes :	ID (LBRACK^ expr RBRACK!)?
 	;
@@ -176,10 +178,21 @@ atom    :   ID (LBRACK^ expr RBRACK!)?
         ;
 
 // A function call has a lits of arguments in parenthesis (possibly empty)
-funcall :   ID '(' ')' -> ^(FUNCALL ID ^(ARGLIST))
+funcall :  ID '(' expr_list? ')' -> ^(FUNCALL ID ^(ARGLIST expr_list?))
         ;
-
+    
+// A list of expressions separated by commas
+expr_list: expr (','! expr)*
+        ;
+tipus: ENTER
+  | BOOL
+  | CARACTERS
+  ;
+        
 // Basic tokens
+ENTER	: 'int';
+BOOL	: 'bool';
+CARACTERS	: 'string';
 LPAREN	: '(' ;
 LBRACK	: '[' ;
 RBRACK	: ']' ;
@@ -196,7 +209,7 @@ DIV	    : '/';
 MOD	    : '%' ;
 NOT	    : 'not';
 AND	    : 'and' ;
-OR	    : 'or' ;	
+OR	    : 'or' ;
 IF  	: 'if' ;
 THEN	: 'then' ;
 ELSE	: 'else' ;
