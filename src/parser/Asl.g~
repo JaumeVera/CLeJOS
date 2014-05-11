@@ -61,7 +61,7 @@ prog	: func+ EOF -> ^(LIST_FUNCTIONS func+)
         ;
             
 // A function has a name, a list of parameters and a block of instructions	
-func	: FUNC^ ID params block_instructions ENDFUNC!
+func	: FUNC^ ftype ID params block_instructions ENDFUNC!
         ;
 
 // The list of parameters grouped in a subtree (it can be empty)
@@ -74,9 +74,11 @@ paramlist: param (','! param)*
         
 // Parameters with & as prefix are passed by reference
 // Only one node with the name of the parameter is created
-param   :   ptype ('&' id = ID -> ^(PREF[$id,$id.text])
-		   | id = ID -> ^(PVALUE[$id,$id.text]))
+param   :   ptype ('&' id = ID -> ptype ^(PREF[$id,$id.text])
+		   | id = ID -> ptype ^(PVALUE[$id,$id.text]))
         ;
+
+ftype	: ftipus^;
         
 ptype	: tipus^;
         
@@ -188,11 +190,18 @@ tipus: ENTER
   | BOOL
   | CARACTERS
   ;
-        
+
+ftipus: ENTER
+  | BOOL
+  | CARACTERS
+  | BUIT
+  ;
+  
 // Basic tokens
 ENTER	: 'int';
 BOOL	: 'bool';
 CARACTERS	: 'string';
+BUIT	: 'void';
 LPAREN	: '(' ;
 LBRACK	: '[' ;
 RBRACK	: ']' ;

@@ -61,6 +61,9 @@ public class Data {
     /** Constructor for Booleans */
     Data(boolean b) {type = Type.BOOLEAN; value = b ? 1 : 0; }
 
+    /** Constructor for Booleans */
+    Data(boolean b) {type = Type.STRING; value = b ? 1 : 0; }
+    
     /** Constructor for array of int */
     Data(int av, int pos) {
       type = Type.ARRAYI;
