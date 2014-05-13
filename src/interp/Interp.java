@@ -288,18 +288,18 @@ public class Interp {
                 if(tson.getType() == AslLexer.LBRACK){
                     nom = tson.getChild(0).getText();
                     if(Stack.defineVariable(tson.getChild(0).getText(), value)){
-		      switch(value.getType()){
-			case ARRAYB:
-			  tipus = "boolean[";
-			  break;
-			case ARRAYI:
-			  tipus = "int[";
-			  break;
-			case ARRAYS:
-			  tipus = "String[";
-			  break;
-			default: assert false;
-		      }
+                        switch(value.getType()){
+                          case ARRAYB:
+                            tipus = "boolean[";
+                            break;
+                          case ARRAYI:
+                            tipus = "int[";
+                            break;
+                          case ARRAYS:
+                            tipus = "String[";
+                            break;
+                          default: assert false;
+                              }
                     }
                     Data d = Stack.getVariable(tson.getChild(0).getText());
                     Data pos = evaluateExpression(tson.getChild(1));
@@ -311,24 +311,64 @@ public class Interp {
                 else{
                     nom = t.getChild(0).getText();
                     if(Stack.defineVariable (t.getChild(0).getText(), value)){
-		      switch(value.getType()){
-			case BOOLEAN:
-			  tipus = "boolean";
-			  break;
-			case INTEGER:
-			  tipus = "int";
-			  break;
-			case STRING:
-			  tipus = "String";
-			  break;
-			default: assert false;
-		      }
+                          switch(value.getType()){
+                      case BOOLEAN:
+                        tipus = "boolean";
+                        break;
+                      case INTEGER:
+                        tipus = "int";
+                        break;
+                      case STRING:
+                        tipus = "String";
+                        break;
+                      default: assert false;
+                          }
+                    }
+                    else{
+                        tipus = "";
                     }
                 }
                 value.defineString(nom+" = "+ value.getEquivalent());
-                if(prepare) programa.add(ident+tipus+" "+value.getEquivalent()+";");
+                if(prepare){
+                    if(tipus != "")programa.add(ident+tipus+" "+value.getEquivalent()+";");
+                    else programa.add(ident+value.getEquivalent()+";");
+                }    
                 return null;
 
+            // If-then-else
+            case AslLexer.IF:
+                instruct += "if (";
+                instruct += (checkStringBoolean(t.getChild(0)));
+                value = evaluateExpression(t.getChild(0));                
+                checkBoolean(value);
+                instruct += ") {";
+                programa.add(instruct);
+                executeListInstructions(t.getChild(1), ident, prepare);
+                programa.add(ident + "}");                
+                // Is there else statement ?
+                if (t.getChildCount() == 3){
+                    programa.add(ident + "else {");
+                    executeListInstructions(t.getChild(2), ident, prepare);
+                    programa.add(ident + "}");
+                }
+                //if(prepare) programa.add(ident + "endif");
+                return null;   
+
+            // While
+            case AslLexer.WHILE:
+                while (true) {
+                    instruct += "while (";
+                    instruct += (checkStringBoolean(t.getChild(0)));
+                    instruct += ") {";                
+                    value = evaluateExpression(t.getChild(0));
+                    checkBoolean(value);                  
+                    programa.add(instruct);                      
+                    Data r = executeListInstructions(t.getChild(1), ident, prepare);
+                    programa.add(ident + "}");
+                    //if(prepare) programa.add(ident + "wend");
+                    return null;
+                }
+/*                
             // If-then-else
             case AslLexer.IF:
                 instruct += "if ";
@@ -356,8 +396,10 @@ public class Interp {
                     Data r = executeListInstructions(t.getChild(1), ident, prepare);
                     if(prepare) programa.add(ident + "wend");
                     return null;
-                }
-
+                }                
+*/
+                
+                
             // Return
             case AslLexer.RETURN:
                 if (t.getChildCount() != 0) {
@@ -573,13 +615,12 @@ public class Interp {
      * @return The value of the expression.
      */
      
-    private Data evaluateExpression(AslTree t) {
+    private Data evaluateExpression(AslTree t) {  
         assert t != null;
 
         int previous_line = lineNumber();
         setLineNumber(t);
         int type = t.getType();
-
         String equivalent = "";
         Data value = null;
         // Atoms
@@ -633,9 +674,12 @@ public class Interp {
             setLineNumber(previous_line);
             return value;
         }
+        //Al ser sensors (la majoria no tenen parametres) s'ha de tindre en compte que no tenen parametres.
+        if(t.getChildCount() == 0) return new Data(true);
         
-        // Unary operators
-        value = evaluateExpression(t.getChild(0));
+        
+        // Unary operators       
+        value = evaluateExpression(t.getChild(0));        
         if (t.getChildCount() == 1) {
 	  String operator = "";
 	  switch (type) {
