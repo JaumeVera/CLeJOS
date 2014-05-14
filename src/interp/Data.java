@@ -52,6 +52,9 @@ public class Data {
     /** Content of the array */
     private int[] content;
 
+    /** Word if it's a string */
+    private String word;
+    
     /** String equivalent */
     private String written;
     
@@ -62,7 +65,7 @@ public class Data {
     Data(boolean b) {type = Type.BOOLEAN; value = b ? 1 : 0; }
 
     /** Constructor for Booleans */
-    Data(String s) {type = Type.STRING; written = s; }
+    Data(String s) {type = Type.STRING; word = s; }
     
     /** Constructor for array of int */
     Data(int av, int pos) {
@@ -161,6 +164,9 @@ public class Data {
 
     /** Defines an integer value for the data */
     public void setValue(int v) { type = Type.INTEGER; value = v; }
+    
+    /** Defines an integer value for the data */
+    public void setValue(String s) { type = Type.STRING; word = s; }
 
     /** Defines an array of booleans value for the data */
     public void setValue(int pos, boolean b) {
