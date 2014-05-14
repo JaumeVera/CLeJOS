@@ -100,6 +100,7 @@ public class Interp {
       String main = "  public void main(";
       main += ") throws InterruptedException {";
       programa.add(main);
+      programa.add("      TouchSensor touch = new TouchSensor(SensorPort.S1);");      
       executeFunction ("main", null, true);
       programa.add("  }");
       programa.add("}");
@@ -357,10 +358,10 @@ public class Interp {
             // While
             case AslLexer.WHILE:
                 while (true) {
+                    value = evaluateExpression(t.getChild(0));                
                     instruct += "while (";
-                    instruct += (checkStringBoolean(t.getChild(0)));
+                    instruct += value.getEquivalent();
                     instruct += ") {";                
-                    value = evaluateExpression(t.getChild(0));
                     checkBoolean(value);                  
                     programa.add(instruct);                      
                     Data r = executeListInstructions(t.getChild(1), ident, prepare);
@@ -485,7 +486,7 @@ public class Interp {
 		return null;
 
 	   case AslLexer.SENTIR:
-		instruct = "rFeel()";
+		instruct = "touch.isPressed()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 	   case AslLexer.INFRA:
@@ -696,9 +697,11 @@ public class Interp {
 		  value.setValue(-value.getIntegerValue());
 		  break;
 	      case AslLexer.NOT:
+	      System.out.println("Jaume no mola nada");
 		  checkBoolean(value);
 		  operator = "!";
 		  equivalent = value.toString();
+		  System.out.println(equivalent);
 		  value.setValue(!value.getBooleanValue());
 		  break;
 	      case AslLexer.LPAREN:
