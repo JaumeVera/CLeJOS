@@ -142,6 +142,11 @@ public class Interp {
      */
     public void prepareFunctions(){
       programa.add("import josx.platform.rcx.*;");
+      programa.add("import lejos.nxt.LCD;");
+      programa.add("import lejos.nxt.SensorPort;");
+      programa.add("import lejos.nxt.ColorSensor;"); // Got it, (el que està ocult a sota del robot amb tres coses)
+      programa.add("import lejos.nxt.UltrasonicSensor;"); // Got it, (el que té com dos altaveus)
+      programa.add("import lejos.nxt.TouchSensor;"); // Got it, (el que sembla un canó)
       programa.add("public class NXTLeJOS {");
       int posarbr = 2;
       Set a = FuncName2Tree.keySet();
@@ -286,6 +291,7 @@ public class Interp {
                 AslTree tson = t.getChild(0);
                 String nom;
                 String tipus = "void";
+                Data pos = new Data(0);
                 if(tson.getType() == AslLexer.LBRACK){
                     nom = tson.getChild(0).getText();
                     if(Stack.defineVariable(tson.getChild(0).getText(), value)){
@@ -302,8 +308,9 @@ public class Interp {
                           default: assert false;
                               }
                     }
+                    else tipus = "void[]";
                     Data d = Stack.getVariable(tson.getChild(0).getText());
-                    Data pos = evaluateExpression(tson.getChild(1));
+                    pos = evaluateExpression(tson.getChild(1));
                     int posicio = pos.getIntegerValue();
                     if (value.isBoolean()) d.setValue(posicio, value.getBooleanValue());
                     else d.setValue(posicio, value.getIntegerValue());
@@ -312,27 +319,33 @@ public class Interp {
                 else{
                     nom = t.getChild(0).getText();
                     if(Stack.defineVariable (t.getChild(0).getText(), value)){
-                          switch(value.getType()){
-                      case BOOLEAN:
-                        tipus = "boolean";
-                        break;
-                      case INTEGER:
-                        tipus = "int";
-                        break;
-                      case STRING:
-                        tipus = "String";
-                        break;
-                      default: assert false;
-                          }
-                    }
-                    else{
-                        tipus = "";
+		      switch(value.getType()){
+			case BOOLEAN:
+			  tipus = "boolean";
+			  break;
+			case INTEGER:
+			  tipus = "int";
+			  break;
+			case STRING:
+			  tipus = "String";
+			  break;
+			default: assert false;
+		      }
                     }
                 }
-                value.defineString(nom+" = "+ value.getEquivalent());
                 if(prepare){
-                    if(tipus != "")programa.add(ident+tipus+" "+value.getEquivalent()+";");
-                    else programa.add(ident+value.getEquivalent()+";");
+                    if(tipus.equals("void")){
+		      value.defineString(nom+" = "+ value.getEquivalent());
+		      programa.add(ident+value.getEquivalent()+";");
+		    }
+                    else if(tipus.equals("void[]")){
+		      programa.add(ident+value.getEquivalent()+"new "+ tipus + "[" + pos.getEquivalent() +"];");
+		      programa.add(ident+nom+" = "+ value.getEquivalent()+";");
+		    }
+                    else{
+		      value.defineString(nom+" = "+ value.getEquivalent());
+		      programa.add(ident+tipus+" "+ value.getEquivalent()+";");
+		    }
                 }    
                 return null;
 
@@ -667,6 +680,45 @@ public class Interp {
 		}
 		value.defineString(equivalent);
                 break;
+           //Sensors
+	   case AslLexer.SENTIR:
+		String instruct = "touch.isPressed()";
+		value = new Data(true);
+		value.defineString(instruct);
+		return value;
+	   case AslLexer.INFRA:
+		instruct = "rSense()";
+		value = new Data(true);
+		value.defineString(instruct);
+		return value;
+	   case AslLexer.CHOCAR:
+		instruct = "rBumper()";
+		value = new Data(true);
+		value.defineString(instruct);
+		return value;
+	   case AslLexer.ORIENTACION:
+		instruct = "rCompass()";
+		value = new Data(0);
+		value.defineString(instruct);
+		return value;
+	   case AslLexer.DISTANCIACOLOR:
+		instruct = "rBeacon(";
+		String str = t.getChild(0).getText();
+		instruct += str;
+		instruct += ")";
+		value = new Data(0);
+		value.defineString(instruct);
+		return value;
+           case AslLexer.MIRAR:
+		instruct = "rLook( ";
+		Data number = evaluateExpression(t.getChild(0));
+		checkInteger(number);
+		str = number.getEquivalent();
+		instruct += str+")";
+		value = new Data("A");
+		value.defineString(instruct);
+		return value;
+		
             default: break;
         }
         
@@ -687,22 +739,21 @@ public class Interp {
 	      case AslLexer.PLUS:
 		  checkInteger(value);
 		  operator = "+";
-		  equivalent = value.toString();
-		  value.setValue(-value.getIntegerValue());
+		  equivalent = value.getEquivalent();
+		  value.setValue(+value.getIntegerValue());
 		  break;
 	      case AslLexer.MINUS:
 		  checkInteger(value);
 		  operator = "-";
-		  equivalent = value.toString();
+		  equivalent = value.getEquivalent();
 		  value.setValue(-value.getIntegerValue());
 		  break;
 	      case AslLexer.NOT:
-	      System.out.println("Jaume no mola nada");
 		  checkBoolean(value);
 		  operator = "!";
-		  equivalent = value.toString();
-		  System.out.println(equivalent);
+		  equivalent = value.getEquivalent();
 		  value.setValue(!value.getBooleanValue());
+		  value.defineString(value.getEquivalent());
 		  break;
 	      case AslLexer.LPAREN:
 		  operator = "(";
