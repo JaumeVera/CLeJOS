@@ -446,6 +446,7 @@ public class Interp {
                 if(prepare) programa.add(instruct); 
                 return null;
                 
+	   //quiza con inirobot podriamos aprovecharlo para declarar motores y sensores
 	    case AslLexer.INIROBOT:
 		instruct = "rLocate ";
 		int n = t.getChildCount();
