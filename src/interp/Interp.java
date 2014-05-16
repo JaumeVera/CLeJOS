@@ -483,32 +483,49 @@ public class Interp {
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 	    case AslLexer.AVAN:
-		instruct = "rForward ";
-		number = evaluateExpression(t.getChild(0));
-		checkInteger(number);
-		str = number.getEquivalent();
-		instruct += str;
+		instruct = "Motor.B.forward(); Motor.C.forward();" ;
+		//number = evaluateExpression(t.getChild(0));
+		//checkInteger(number);
+		//str = number.getEquivalent();
+		//instruct += str;
+		if(prepare) programa.add(ident+instruct+";");
+		return null;
+	    case AslLexer.RETRO:
+		instruct = "Motor.B.backward(); Motor.C.backward();";
+		//number = evaluateExpression(t.getChild(0));
+		//checkInteger(number);
+		//str = number.getEquivalent();
+		//instruct += str;
+		if(prepare) programa.add(ident+instruct+";");
+		return null;
+	    case AslLexer.PARA:
+		instruct = "Motor.A.stop();";
+		//number = evaluateExpression(t.getChild(0));
+		//checkInteger(number);
+		//str = number.getEquivalent();
+		//instruct += str;
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 	    case AslLexer.GIRA:
-		instruct = "rTurn ";
+		instruct = "Motor.B.rotate(";
 		number = evaluateExpression(t.getChild(0));
 		checkInteger(number);
 		str = number.getEquivalent();
 		instruct += str;
+		instruct += ");";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 
-	   case AslLexer.SENTIR:
+	   case AslLexer.CHOCAR:
 		instruct = "touch.isPressed()";
+		if(prepare) programa.add(ident+instruct+";");
+		return null;
+	   case AslLexer.DISTANCIA:
+		instruct = "sonar.getDistance()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 	   case AslLexer.INFRA:
 		instruct = "rSense()";
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
-	   case AslLexer.CHOCAR:
-		instruct = "rBumper()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 	   case AslLexer.ORIENTACION:
@@ -682,18 +699,13 @@ public class Interp {
 		value.defineString(equivalent);
                 break;
            //Sensors
-	   case AslLexer.SENTIR:
+	   case AslLexer.CHOCAR:
 		String instruct = "touch.isPressed()";
 		value = new Data(true);
 		value.defineString(instruct);
 		return value;
 	   case AslLexer.INFRA:
 		instruct = "rSense()";
-		value = new Data(true);
-		value.defineString(instruct);
-		return value;
-	   case AslLexer.CHOCAR:
-		instruct = "rBumper()";
 		value = new Data(true);
 		value.defineString(instruct);
 		return value;
