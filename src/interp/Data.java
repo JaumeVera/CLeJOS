@@ -55,6 +55,9 @@ public class Data {
     /** Word if it's a string */
     private String word;
     
+    /** Word if it's a string */
+    private String[] words;
+    
     /** String equivalent */
     private String written;
     
@@ -85,6 +88,15 @@ public class Data {
       content[pos] = ab ? 1 : 0;
     }
     
+    /** Constructor for array of string */
+    Data(String s, int pos) {
+      type = Type.ARRAYS;
+      value = pos;
+      words = new String[pos+1];
+      for (int i = 0; i < pos; i++) words[i] = "";
+      words[pos] = s;
+    }
+    
     /** Constructor for void data */
     Data() {type = Type.VOID; }
 
@@ -92,10 +104,17 @@ public class Data {
     Data(Data d) {
       type = d.type;
       value = d.value;
+      word = d.word;
       if (type == Type.ARRAYB || type == Type.ARRAYI){
 	content = new int[d.value+1];
 	for (int i = 0; i < d.value+1; i++){
 	  content[i] = d.content[i];
+	}
+      }
+      else if (type == Type.ARRAYS){
+	words = new String[d.value+1];
+	for (int i = 0; i < d.value+1; i++){
+	  words[i] = d.words[i];
 	}
       }
     }
@@ -106,9 +125,12 @@ public class Data {
     /** Indicates whether the data is Array of Boolean */
     public boolean isArrayBoolean() { return type == Type.ARRAYB; }
 
-    /** Indicates whether the data is Array of integer */
+    /** Indicates whether the data is Array of Integer */
     public boolean isArrayInteger() { return type == Type.ARRAYI; }
 
+    /** Indicates whether the data is Array of String */
+    public boolean isArrayString() { return type == Type.ARRAYS; }
+    
     /** Indicates whether the data is String */
     public boolean isString() { return type == Type.STRING; }
     
@@ -160,59 +182,85 @@ public class Data {
     }
 
     /** Defines a Boolean value for the data */
-    public void setValue(boolean b) { type = Type.BOOLEAN; value = b ? 1 : 0; }
+    public void setValue(boolean b) {
+      type = Type.BOOLEAN;
+      value = b ? 1 : 0;
+    }
 
     /** Defines an integer value for the data */
-    public void setValue(int v) { type = Type.INTEGER; value = v; }
+    public void setValue(int v) {
+      type = Type.INTEGER;
+      value = v;
+    }
     
     /** Defines an integer value for the data */
-    public void setValue(String s) { type = Type.STRING; word = s; }
+    public void setValue(String s) {
+      type = Type.STRING;
+      word = s;
+    }
 
     /** Defines an array of booleans value for the data */
     public void setValue(int pos, boolean b) {
-      if (type == Type.ARRAYB && (pos > value)){
-	int[] contentaux = new int[pos+1];
-	for (int i = 0; i < value; i++) contentaux[i] = content[i];
-	content = new int[pos+1];
-	for (int i = 0; i < value; i++) content[i] = contentaux[i];
-	for (int i = value+1; i < pos; i++) content[i] = 0;
-	content[pos] = b ? 1 : 0;
-      }
+      if (pos > value) throw new RuntimeException ("Out of Bounds Exception");
+      else if (type == Type.ARRAYB) content[pos] = b ? 1 : 0;
       else{
-	content = new int[pos+1];
-	for (int i = 0; i < pos; i++) pos = 0;
-	content[pos] = b ? 1 : 0;
+	String typ = "Integer";
+	if (type == Type.ARRAYI) typ = "Integer Array";
+	else if (type == Type.ARRAYS) typ = "String Array";
+	else if (type == Type.BOOLEAN) typ = "Boolean";
+	else if (type == Type.STRING) typ = "String";
+	throw new RuntimeException ("Wrong type. Expected: Boolean Array.Found: "+typ+".");
       }
       type = Type.ARRAYB;
     }
 
     /** Defines an integer value for the data */
     public void setValue(int pos, int v) {
-      if (type == Type.ARRAYI && (pos > value)){
-	int[] contentaux = new int[pos+1];
-	for (int i = 0; i < value; i++) contentaux[i] = content[i];
-	content = new int[pos+1];
-	for (int i = 0; i < value; i++) content[i] = contentaux[i];
-	for (int i = value+1; i < pos; i++) content[i] = 0;
-	content[pos] = v;
-      }
+      if (pos > value) throw new RuntimeException ("Out of Bounds Exception");
+      else if (type == Type.ARRAYI) content[pos] = v;
       else{
-	content = new int[pos+1];
-	for (int i = 0; i < pos; i++) pos = 0;
-	content[pos] = v;
+	String typ = "Integer";
+	if (type == Type.ARRAYB) typ = "Boolean Array";
+	else if (type == Type.ARRAYS) typ = "String Array";
+	else if (type == Type.BOOLEAN) typ = "Boolean";
+	else if (type == Type.STRING) typ = "String";
+	throw new RuntimeException ("Wrong type. Expected: Integer Array.Found: "+typ+".");
       }
       type = Type.ARRAYI;
+    }
+    
+    /** Defines an integer value for the data */
+    public void setValue(int pos, String w) {
+      if (pos > value) throw new RuntimeException ("Out of Bounds Exception");
+      else if (type == Type.ARRAYS) words[pos] = w;
+      else{
+	String typ = "Integer";
+	if (type == Type.ARRAYB) typ = "Boolean Array";
+	else if (type == Type.ARRAYI) typ = "Integer Array";
+	else if (type == Type.BOOLEAN) typ = "Boolean";
+	else if (type == Type.STRING) typ = "String";
+	throw new RuntimeException ("Wrong type. Expected: Integer Array.Found: "+typ+".");
+      }
+      type = Type.ARRAYS;
     }
     
     /** Copies the value from another data */
     public void setData(Data d) { 
       type = d.type;
       value = d.value;
-      if (type == Type.ARRAYI || type == Type.ARRAYB){
-	content = new int[value+1];
-	for (int i = 0; i < value+1; i++) content[i] = d.content[i];
+      word = d.word;
+      if (type == Type.ARRAYB || type == Type.ARRAYI){
+	content = new int[d.value+1];
+	for (int i = 0; i < d.value+1; i++){
+	  content[i] = d.content[i];
+	}
       }
-      else content = new int[1];
+      else if (type == Type.ARRAYS){
+	words = new String[d.value+1];
+	for (int i = 0; i < d.value+1; i++){
+	  words[i] = d.words[i];
+	}
+      }
     }
     
     /** Define string */

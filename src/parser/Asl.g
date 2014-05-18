@@ -102,23 +102,19 @@ instruction
         ;
 
 special_instruction
-	:	INIROBOT^ expr ','! expr ','! expr
-	|	AVAN^ expr
-	|	RETRO^ expr
-	|	NOBSTACLE^ COLOR (','! COLOR)?
+	:	AVAN^
+	|	RETRO^
 	|	GIRA^ expr
-	|	PINTARCOLOR^ ESTADOPINTAR
-	|	OBSTACLE^ expr ','! expr ','! expr ','! expr ','! COLOR ','! COLOR
+	|	PARA^
+	|	DISPARAR^
 	|	sensors
 	;
 
 sensors
-	:	SENTIR^
-	|	INFRA^
-	|	CHOCAR^
-	|	DISTANCIACOLOR^ COLOR
-	|	ORIENTACION
-	|	MIRAR ^ expr
+	:	CHOCAR^
+	|	DISTANCIA^
+	|	SENTIRCOLOR^
+	|	ESPERARBOTO^
 	;
 
 // Assignment
@@ -233,21 +229,19 @@ READ	: 'read' ;
 WRITE	: 'write' ;
 TRUE    : 'true' ;
 FALSE   : 'false';
-INIROBOT: 'inirobot';
+
 AVAN	: 'avanca';
-RETRO	: 'retrocedeix';
-NOBSTACLE	: 'noobstacle';
-PINTARCOLOR	: 'pinta';
-OBSTACLE	: 'obstacle';
-SENTIR	: 'sentir';
-INFRA	: 'infrared';
-CHOCAR	: 'chocar';
-DISTANCIACOLOR	: 'distanciacolor';
-ORIENTACION	: 'orientacion';
-MIRAR	: 'mirar';
+RETRO	: 'retro';
+PARA	: 'para';
 GIRA	: 'gira';
+DISPARAR	: 'disparar';
+
+ESPERARBOTO	: 'boto';
+DISTANCIA	: 'distancia';
+CHOCAR	: 'chocar';
+SENTIRCOLOR	: 'sentir_color';
+
 COLOR	: ( 'black' | 'blue' | 'green' | 'cyan' | 'red' | 'magenta' | 'brown' | 'gray' | 'darkgray' | 'lightblue' | 'lightcyan' | 'lightred' | 'lightmagenta' | 'yellow' | 'white');
-ESTADOPINTAR	: ('up' | 'down');
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 INT 	:	'0'..'9'+ ;
 

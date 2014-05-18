@@ -100,7 +100,9 @@ public class Interp {
       String main = "  public void main(";
       main += ") throws InterruptedException {";
       programa.add(main);
-      programa.add("      TouchSensor touch = new TouchSensor(SensorPort.S1);");      
+      programa.add("      touch = new TouchSensor(SensorPort.S1);");
+      programa.add("      color = new ColorSensor(SensorPort.S3);");
+      programa.add("      ultrasonic = new UltrasonicSensor(SensorPort.S4);");
       executeFunction ("main", null, true);
       programa.add("  }");
       programa.add("}");
@@ -141,13 +143,20 @@ public class Interp {
      * Prepares the functions
      */
     public void prepareFunctions(){
-      programa.add("import josx.platform.rcx.*;");
       programa.add("import lejos.nxt.LCD;");
+      programa.add("import lejos.nxt.Motor;");
       programa.add("import lejos.nxt.SensorPort;");
-      programa.add("import lejos.nxt.ColorSensor;"); // Got it, (el que està ocult a sota del robot amb tres coses)
-      programa.add("import lejos.nxt.UltrasonicSensor;"); // Got it, (el que té com dos altaveus)
-      programa.add("import lejos.nxt.TouchSensor;"); // Got it, (el que sembla un canó)
+      
+      //Three sensors
+      programa.add("import lejos.nxt.TouchSensor;");
+      programa.add("import lejos.nxt.UltrasonicSensor;");
+      programa.add("import lejos.nxt.ColorSensor;");
+      programa.add("");
       programa.add("public class NXTLeJOS {");
+      programa.add("  private TouchSensor touch;");
+      programa.add("  private ColorSensor color;");
+      programa.add("  private UltrasonicSensor ultrasonic;");
+      programa.add("");
       int posarbr = 2;
       Set a = FuncName2Tree.keySet();
       String[] stringArray;
@@ -172,6 +181,7 @@ public class Interp {
 	  Data d = executeFunction(fname, f.getChild(posarbr), true);
 	  if (ftype != "void" && d == null) throw new RuntimeException ("Missing return statement in: " + fname);
 	  programa.add("  }");
+	  programa.add("");
 	}
       }
     }
@@ -417,7 +427,9 @@ public class Interp {
             // Return
             case AslLexer.RETURN:
                 if (t.getChildCount() != 0) {
-                    return evaluateExpression(t.getChild(0));
+                    Data data = evaluateExpression(t.getChild(0));
+                    programa.add(ident+"return "+data.getEquivalent()+";");
+                    return data;
                 }
                 return new Data(); // No expression: returns void data
 
@@ -441,78 +453,39 @@ public class Interp {
 
             // Write statement: it can write an expression or a string.
             case AslLexer.WRITE:
-                instruct += "print ";
+                instruct = "LCD.drawString(";
                 instruct += evaluateExpression(t.getChild(0)).toString();
+                instruct += ",0,0);";
                 if(prepare) programa.add(instruct); 
                 return null;
-                
-	   //quiza con inirobot podriamos aprovecharlo para declarar motores y sensores
-	    case AslLexer.INIROBOT:
-		instruct = "rLocate ";
-		int n = t.getChildCount();
-		for(int i = 0; i < n-1; i++){
-		  Data number = evaluateExpression(t.getChild(i));
-		  String str = number.getEquivalent();
-		  checkInteger(number);
-		  instruct += str;
-		  instruct += ", ";
-		}
-		Data number = evaluateExpression(t.getChild(t.getChildCount()-1));
-		String str = number.getEquivalent();
-		checkInteger(number);
-		instruct += str;
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
 		
-	    case AslLexer.NOBSTACLE:
-		instruct = "rInvisible ";
-		n = t.getChildCount();
-		for (int i = 0; i < n-1; i++) {
-		  str = t.getChild(i).getText();
-		  instruct += str;
-		  instruct += ", ";
-		}
-		str = t.getChild(t.getChildCount()-1).getText();
-		instruct += str;
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
-	    case AslLexer.PINTARCOLOR:
-		instruct = "rPen ";
-		str = t.getChild(0).getText();
-		instruct += str;
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
 	    case AslLexer.AVAN:
 		instruct = "Motor.B.forward(); Motor.C.forward();" ;
-		//number = evaluateExpression(t.getChild(0));
-		//checkInteger(number);
-		//str = number.getEquivalent();
-		//instruct += str;
-		if(prepare) programa.add(ident+instruct+";");
+		if(prepare) programa.add(ident+instruct);
 		return null;
+		
 	    case AslLexer.RETRO:
 		instruct = "Motor.B.backward(); Motor.C.backward();";
-		//number = evaluateExpression(t.getChild(0));
-		//checkInteger(number);
-		//str = number.getEquivalent();
-		//instruct += str;
-		if(prepare) programa.add(ident+instruct+";");
+		if(prepare) programa.add(ident+instruct);
 		return null;
+		
 	    case AslLexer.PARA:
-		instruct = "Motor.A.stop();";
-		//number = evaluateExpression(t.getChild(0));
-		//checkInteger(number);
-		//str = number.getEquivalent();
-		//instruct += str;
-		if(prepare) programa.add(ident+instruct+";");
+		instruct = "Motor.A.stop(); Motor.B.stop(); Motor.C.stop();";
+		if(prepare) programa.add(ident+instruct);
 		return null;
+		
 	    case AslLexer.GIRA:
 		instruct = "Motor.B.rotate(";
-		number = evaluateExpression(t.getChild(0));
+		Data number = evaluateExpression(t.getChild(0));
 		checkInteger(number);
-		str = number.getEquivalent();
+		String str = number.getEquivalent();
 		instruct += str;
-		instruct += ");";
+		instruct += "); Motor.C.rotate("+str+");";
+		if(prepare) programa.add(ident+instruct);
+		return null;
+		
+	   case AslLexer.DISPARAR:
+		instruct = "Motor.A.forward()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 
@@ -520,56 +493,31 @@ public class Interp {
 		instruct = "touch.isPressed()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
+		
 	   case AslLexer.DISTANCIA:
 		instruct = "sonar.getDistance()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
-	   case AslLexer.INFRA:
+		
+	   case AslLexer.SENTIRCOLOR:
 		instruct = "rSense()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
-	   case AslLexer.ORIENTACION:
-		instruct = "rCompass()";
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
-	   case AslLexer.DISTANCIACOLOR:
-		instruct = "rBeacon(";
-		str = t.getChild(0).getText();
-		instruct += str;
-		instruct += ")";
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
-           case AslLexer.MIRAR:
-		instruct = "rLook( ";
-		number = evaluateExpression(t.getChild(0));
-		checkInteger(number);
-		str = number.getEquivalent();
-		instruct += str;
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
-	    case AslLexer.OBSTACLE:
-		instruct = "CircleWH ";
-		n = t.getChildCount();
-		str = "";
-		for(int i = 0; i < 4; i++){
-		  number = evaluateExpression(t.getChild(i));
-		  str = number.getEquivalent();
-		  checkInteger(number);
-		  instruct += str;
-		  instruct += ", ";
-		}
-		for(int i = 4; i < n-1; i++){
-		  t.getChild(i).getText();
-		  instruct += str;
-		}
-		str = t.getChild(n-1).getText();
-		instruct += str;
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
+		
             // Function call
             case AslLexer.FUNCALL:
-		if(prepare) programa.add(ident+t.getChild(0).getText()+"();");
-                executeFunction(t.getChild(0).getText(), t.getChild(1), false);
+		value = new Data(0);
+		value.defineString(t.getChild(0).getText()+"(");
+		int n = t.getChild(1).getChildCount();
+		System.out.println(value.getEquivalent());
+		for(int i = 0; i < n; i++){
+		  System.out.println(t.getChild(1).getChild(i));
+		  value.addString(t.getChild(1).getChild(i).getText());
+		  if(i != n-1) value.addString(",");
+		}
+		value.addString(")");
+		programa.add(ident+value.getEquivalent()+";");
+		value = executeFunction(t.getChild(0).getText(), t.getChild(1), false);
                 return null;
 
             default: assert false; // Should never happen
@@ -675,7 +623,15 @@ public class Interp {
                 
             // A function call. Checks that the function returns a result.
             case AslLexer.FUNCALL:
-		value.defineString(t.getChild(0).getText()+"()");
+		value.defineString(t.getChild(0).getText()+"(");
+		int n = t.getChild(1).getChildCount();
+		System.out.println(value.getEquivalent());
+		for(int i = 0; i < n; i++){
+		  System.out.println(t.getChild(1).getChild(i));
+		  value.addString(t.getChild(1).getChild(i).getText());
+		  if(i != n-1) value.addString(",");
+		}
+		value.addString(")");
 		value = executeFunction(t.getChild(0).getText(), t.getChild(1), false);
 		assert value != null;
 		if (value.isVoid()) {
@@ -704,33 +660,16 @@ public class Interp {
 		value = new Data(true);
 		value.defineString(instruct);
 		return value;
-	   case AslLexer.INFRA:
+		
+	   case AslLexer.DISTANCIA:
+		instruct = "sonar.getDistance()";
+		value.defineString(instruct);
+		return null;
+		
+	   case AslLexer.SENTIRCOLOR:
 		instruct = "rSense()";
-		value = new Data(true);
 		value.defineString(instruct);
-		return value;
-	   case AslLexer.ORIENTACION:
-		instruct = "rCompass()";
-		value = new Data(0);
-		value.defineString(instruct);
-		return value;
-	   case AslLexer.DISTANCIACOLOR:
-		instruct = "rBeacon(";
-		String str = t.getChild(0).getText();
-		instruct += str;
-		instruct += ")";
-		value = new Data(0);
-		value.defineString(instruct);
-		return value;
-           case AslLexer.MIRAR:
-		instruct = "rLook( ";
-		Data number = evaluateExpression(t.getChild(0));
-		checkInteger(number);
-		str = number.getEquivalent();
-		instruct += str+")";
-		value = new Data("A");
-		value.defineString(instruct);
-		return value;
+		return null;  
 		
             default: break;
         }
