@@ -1,0 +1,6 @@
+func void main()
+    lel = chocar;  
+    while chocar do
+        i = 1;
+    endwhile
+endfunc

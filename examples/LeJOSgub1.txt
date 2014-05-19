@@ -1,0 +1,7 @@
+func void main()
+    avanca;
+    para;
+    retro;
+    gira 30;
+    disparar;
+endfunc

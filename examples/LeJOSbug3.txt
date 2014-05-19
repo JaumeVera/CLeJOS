@@ -1,0 +1,6 @@
+func void main()
+    i = boto;
+    while boto do
+        i = 0;
+    endwhile  
+endfunc
