@@ -366,16 +366,15 @@ public class Interp {
                 value = evaluateExpression(t.getChild(0));                
                 checkBoolean(value);
                 instruct += ") {";
-                programa.add(instruct);
+                if(prepare) programa.add(instruct);
                 executeListInstructions(t.getChild(1), ident, prepare);
-                programa.add(ident + "}");                
+                if(prepare) programa.add(ident + "}");                
                 // Is there else statement ?
                 if (t.getChildCount() == 3){
-                    programa.add(ident + "else {");
+                    if(prepare) programa.add(ident + "else {");
                     executeListInstructions(t.getChild(2), ident, prepare);
-                    programa.add(ident + "}");
+                    if(prepare) programa.add(ident + "}");
                 }
-                //if(prepare) programa.add(ident + "endif");
                 return null;   
 
             // While
@@ -386,10 +385,9 @@ public class Interp {
                     instruct += value.getEquivalent();
                     instruct += ") {";                
                     checkBoolean(value);                  
-                    programa.add(instruct);                      
+                    if(prepare) programa.add(instruct);                      
                     Data r = executeListInstructions(t.getChild(1), ident, prepare);
-                    programa.add(ident + "}");
-                    //if(prepare) programa.add(ident + "wend");
+                    if(prepare) programa.add(ident + "}");
                     return null;
                 }
 /*                

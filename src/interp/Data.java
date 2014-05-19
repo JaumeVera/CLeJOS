@@ -67,7 +67,7 @@ public class Data {
     /** Constructor for Booleans */
     Data(boolean b) {type = Type.BOOLEAN; value = b ? 1 : 0; }
 
-    /** Constructor for Booleans */
+    /** Constructor for String */
     Data(String s) {type = Type.STRING; word = s; }
     
     /** Constructor for array of int */
@@ -162,6 +162,15 @@ public class Data {
     }
     
     /**
+     * Gets the value of a String data. The method asserts that
+     * the data is a String.
+     */
+    public String getStringValue() {
+        assert type == Type.STRING;
+        return word;
+    }
+    
+    /**
      * Gets the value of an array of integer. The method asserts that
      * the data is an array of integers.
      */
@@ -181,6 +190,16 @@ public class Data {
         else return (content[pos] == 1);
     }
 
+    /**
+     * Gets the value of an array of strings. The method asserts that
+     * the data is an array of strings.
+     */
+    public String getArrayStringValue(int pos) {
+        assert type == Type.ARRAYS;
+        if (pos > value) throw new RuntimeException ("Out of Bounds Exception");
+        else return words[pos];
+    }
+    
     /** Defines a Boolean value for the data */
     public void setValue(boolean b) {
       type = Type.BOOLEAN;
