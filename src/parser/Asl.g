@@ -173,6 +173,7 @@ atom    :   ID (LBRACK^ expr RBRACK!)?
         |   funcall
         |   LPAREN^ expr ')'!
         |   sensors
+        |   COLOR
         ;
 
 // A function call has a lits of arguments in parenthesis (possibly empty)
@@ -239,9 +240,10 @@ DISPARAR	: 'disparar';
 ESPERARBOTO	: 'boto';
 DISTANCIA	: 'distancia';
 CHOCAR	: 'chocar';
-SENTIRCOLOR	: 'sentir_color';
+SENTIRCOLOR	: 'sentircolor';
 
-COLOR	: ( 'black' | 'blue' | 'green' | 'cyan' | 'red' | 'magenta' | 'brown' | 'gray' | 'darkgray' | 'lightblue' | 'lightcyan' | 'lightred' | 'lightmagenta' | 'yellow' | 'white');
+COLOR	: ( 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE');
+//COLOR	: ( 'black' | 'blue' | 'green' | 'cyan' | 'red' | 'magenta' | 'brown' | 'gray' | 'darkgray' | 'lightblue' | 'lightcyan' | 'lightred' | 'lightmagenta' | 'yellow' | 'white');
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 INT 	:	'0'..'9'+ ;
 

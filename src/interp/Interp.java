@@ -145,6 +145,7 @@ public class Interp {
     public void prepareFunctions(){
       programa.add("import lejos.nxt.LCD;");
       programa.add("import lejos.nxt.Motor;");
+      programa.add("import lejos.nxt.Button;");
       programa.add("import lejos.nxt.SensorPort;");
       
       //Three sensors
@@ -156,6 +157,7 @@ public class Interp {
       programa.add("  private TouchSensor touch;");
       programa.add("  private ColorSensor color;");
       programa.add("  private UltrasonicSensor ultrasonic;");
+      programa.add("  private Button boto;");
       programa.add("");
       int posarbr = 2;
       Set a = FuncName2Tree.keySet();
@@ -345,7 +347,7 @@ public class Interp {
                 }
                 if(prepare){
                     if(tipus.equals("void")){
-		      value.defineString(nom+" = "+ value.getEquivalent());
+		      value.defineEquivalent(nom+" = "+ value.getEquivalent());
 		      programa.add(ident+value.getEquivalent()+";");
 		    }
                     else if(tipus.equals("void[]")){
@@ -353,7 +355,7 @@ public class Interp {
 		      programa.add(ident+nom+" = "+ value.getEquivalent()+";");
 		    }
                     else{
-		      value.defineString(nom+" = "+ value.getEquivalent());
+		      value.defineEquivalent(nom+" = "+ value.getEquivalent());
 		      programa.add(ident+tipus+" "+ value.getEquivalent()+";");
 		    }
                 }    
@@ -361,9 +363,9 @@ public class Interp {
 
             // If-then-else
             case AslLexer.IF:
+                value = evaluateExpression(t.getChild(0));
                 instruct += "if (";
-                instruct += (checkStringBoolean(t.getChild(0)));
-                value = evaluateExpression(t.getChild(0));                
+                instruct += value.getEquivalent();
                 checkBoolean(value);
                 instruct += ") {";
                 if(prepare) programa.add(instruct);
@@ -454,7 +456,7 @@ public class Interp {
                 instruct = "LCD.drawString(";
                 instruct += evaluateExpression(t.getChild(0)).toString();
                 instruct += ",0,0);";
-                if(prepare) programa.add(instruct); 
+                if(prepare) programa.add(ident+instruct); 
                 return null;
 		
 	    case AslLexer.AVAN:
@@ -498,22 +500,25 @@ public class Interp {
 		return null;
 		
 	   case AslLexer.SENTIRCOLOR:
-		instruct = "rSense()";
+		instruct = "color.getColorID()";
+		if(prepare) programa.add(ident+instruct+";");
+		return null;
+		
+	   case AslLexer.ESPERARBOTO:
+		instruct = "boto.waitForPress()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 		
             // Function call
             case AslLexer.FUNCALL:
 		value = new Data(0);
-		value.defineString(t.getChild(0).getText()+"(");
+		value.defineEquivalent(t.getChild(0).getText()+"(");
 		int n = t.getChild(1).getChildCount();
-		System.out.println(value.getEquivalent());
 		for(int i = 0; i < n; i++){
-		  System.out.println(t.getChild(1).getChild(i));
-		  value.addString(t.getChild(1).getChild(i).getText());
-		  if(i != n-1) value.addString(",");
+		  value.addToEquivalent(t.getChild(1).getChild(i).getText());
+		  if(i != n-1) value.addToEquivalent(",");
 		}
-		value.addString(")");
+		value.addToEquivalent(")");
 		programa.add(ident+value.getEquivalent()+";");
 		value = executeFunction(t.getChild(0).getText(), t.getChild(1), false);
                 return null;
@@ -531,6 +536,8 @@ public class Interp {
      * as soon as an instruction returns a non-null result.
      * Non-null results are only returned by "return" statements.
      * @param t The AST of the block of instructions.
+     * @param ident The identation of the block
+     * @param prepare Indicates if preparing the function (then it needs to be written), or not.
      * @return The data returned by the instructions (null if no return
      * statement has been executed).
      */
@@ -553,7 +560,7 @@ public class Interp {
       switch (type) {
 	// Relational operators
 	case AslLexer.EQUAL:
-	  return "== ";
+	  return " == ";
 	case AslLexer.NOT_EQUAL:
 	  return " != ";
 	case AslLexer.LT:
@@ -606,31 +613,35 @@ public class Interp {
             // A variable
             case AslLexer.ID:
                 value = new Data(Stack.getVariable(t.getText()));
-                value.defineString(t.getText());
+                value.defineEquivalent(t.getText());
                 break;
             // An integer literal
             case AslLexer.INT:
                 value = new Data(t.getIntValue());
-                value.defineString(t.getText());
+                value.defineEquivalent(t.getText());
                 break;
             // A Boolean literal
             case AslLexer.BOOLEAN:
                 value = new Data(t.getBooleanValue());
-                value.defineString(t.getText());
+                value.defineEquivalent(t.getText());
                 break;
+            case AslLexer.COLOR:
+                value = new Data(t.getText());
+                value.defineEquivalent("ColorSensor.Color."+t.getText());
+		break;
                 
             // A function call. Checks that the function returns a result.
             case AslLexer.FUNCALL:
-		value.defineString(t.getChild(0).getText()+"(");
+		value.defineEquivalent(t.getChild(0).getText()+"(");
 		int n = t.getChild(1).getChildCount();
-		System.out.println(value.getEquivalent());
 		for(int i = 0; i < n; i++){
-		  System.out.println(t.getChild(1).getChild(i));
-		  value.addString(t.getChild(1).getChild(i).getText());
-		  if(i != n-1) value.addString(",");
+		  value.addToEquivalent(t.getChild(1).getChild(i).getText());
+		  if(i != n-1) value.addToEquivalent(",");
 		}
-		value.addString(")");
+		value.addToEquivalent(")");
+		String aux = value.getEquivalent();
 		value = executeFunction(t.getChild(0).getText(), t.getChild(1), false);
+		value.defineEquivalent(aux);
 		assert value != null;
 		if (value.isVoid()) {
 		    throw new RuntimeException ("function expected to return a value");
@@ -650,24 +661,35 @@ public class Interp {
 		else{
 		  value = new Data(value.getArrayIntegerValue(value2.getIntegerValue()));
 		}
-		value.defineString(equivalent);
+		value.defineEquivalent(equivalent);
                 break;
-           //Sensors
+                
+           //Sensors. Must return something so they return placeholder data.
 	   case AslLexer.CHOCAR:
 		String instruct = "touch.isPressed()";
 		value = new Data(true);
-		value.defineString(instruct);
+		value.defineEquivalent(instruct);
 		return value;
 		
 	   case AslLexer.DISTANCIA:
 		instruct = "sonar.getDistance()";
-		value.defineString(instruct);
-		return null;
+		value = new Data(0);
+		value.defineEquivalent(instruct);
+		return value;
 		
 	   case AslLexer.SENTIRCOLOR:
-		instruct = "rSense()";
-		value.defineString(instruct);
-		return null;  
+		// Color can be 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE'
+		// Always written as Color.BLACK or ColorSensor.Color.BLACK
+		instruct = "color.getColorID()";
+		value = new Data("BLACK");
+		value.defineEquivalent(instruct);
+		return value;
+		
+	   case AslLexer.ESPERARBOTO:
+		instruct = "boto.waitForPress()";
+		value = new Data(true);
+		value.defineEquivalent(instruct);
+		return value;
 		
             default: break;
         }
@@ -703,7 +725,6 @@ public class Interp {
 		  operator = "!";
 		  equivalent = value.getEquivalent();
 		  value.setValue(!value.getBooleanValue());
-		  value.defineString(value.getEquivalent());
 		  break;
 	      case AslLexer.LPAREN:
 		  operator = "(";
@@ -713,7 +734,7 @@ public class Interp {
 		  break;
 	      default: assert false; // Should never happen
 	  }
-	  value.defineString(operator+equivalent);
+	  value.defineEquivalent(operator+equivalent);
 	  setLineNumber(previous_line);
 	  return value;
         }
@@ -759,7 +780,8 @@ public class Interp {
 
             default: assert false; // Should never happen
         }
-        value.defineString(value.getEquivalent()+operator+value2.getEquivalent());
+        Data value3 = evaluateExpression(t.getChild(0));
+        value.defineEquivalent(value3.getEquivalent()+operator+value2.getEquivalent());
         setLineNumber(previous_line);
         return value;
     }

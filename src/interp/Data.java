@@ -283,12 +283,12 @@ public class Data {
     }
     
     /** Define string */
-    public void defineString(String str){
+    public void defineEquivalent(String str){
       written = str;
     }
     
     /** Add string */
-    public void addString(String str){
+    public void addToEquivalent(String str){
       written += str;
     }
     
