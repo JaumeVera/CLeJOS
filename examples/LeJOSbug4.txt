@@ -1,0 +1,6 @@
+func void main()
+    i = sentircolor;
+    if i = BLACK then
+        write "lel";
+    endif  
+endfunc

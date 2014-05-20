@@ -1,0 +1,11 @@
+func void main() 
+if chocar then
+retrocedeix
+else
+while distancia > 10 do
+avanca
+endwhile
+para
+endif
+endfunc
+

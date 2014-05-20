@@ -1,0 +1,14 @@
+if (touch.isPressed() || sonar.getDistance() < 10) {
+	Motor.B.backward();
+	Motor.C.backward();
+}
+else {
+	Motor.B.forward();
+	Motor.C.forward();
+}
+while (!touch.isPressed()) {
+	Motor.B.forward();
+	Motor.C.forward();
+}
+	Motor.B.stop();
+	Motor.C.stop(); 
