@@ -125,7 +125,7 @@ public class Asl{
                 I.prepareFunctions();
                 I.Run();                  // Executes the code
 		ArrayList<String> a = I.getVector();
-		Writer writer = null;
+		BufferedWriter writer = null;
 		for (int i = 0; i < a.size(); i++){
 		  //System.out.println(a.get(i));
 
