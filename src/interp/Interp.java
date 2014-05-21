@@ -754,7 +754,19 @@ public class Interp {
             case AslLexer.GE:
                 value2 = evaluateExpression(t.getChild(1));
                 if (value.getType() != value2.getType()) {
-                  throw new RuntimeException ("Incompatible types in relational expression");
+		  String error = "Incompatible types in relational expression, comparation between ";
+		  error += value.getType();
+		  error += " and ";
+		  error += value2.getType();
+		  error += " not valid, expected ";
+		  error += value.getType();
+		  error += " and ";
+		  error += value.getType();
+		  error += " or ";
+		  error += value2.getType();
+		  error += " and ";
+		  error += value2.getType();		  
+                  throw new RuntimeException (error);
                 }
                 value = value.evaluateRelational(type, value2);
                 break;
