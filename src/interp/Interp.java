@@ -97,7 +97,8 @@ public class Interp {
     
     /** Runs the program by calling the main function. */
     public void Run() {
-      String main = "  public void main(";
+      String main = "  public static void main(";
+      String args = " String[] args";
       main += ") throws InterruptedException {";
       programa.add(main);
       programa.add("      touch = new TouchSensor(SensorPort.S1);");
@@ -154,9 +155,9 @@ public class Interp {
       programa.add("import lejos.nxt.ColorSensor;");
       programa.add("");
       programa.add("public class NXTLeJOS {");
-      programa.add("  private TouchSensor touch;");
-      programa.add("  private ColorSensor color;");
-      programa.add("  private UltrasonicSensor ultrasonic;");
+      programa.add("  private static TouchSensor touch;");
+      programa.add("  private static ColorSensor color;");
+      programa.add("  private static UltrasonicSensor ultrasonic;");
       programa.add("  private Button boto;");
       programa.add("");
       int posarbr = 2;
@@ -454,7 +455,7 @@ public class Interp {
             // Write statement: it can write an expression or a string.
             case AslLexer.WRITE:
                 instruct = "LCD.drawString(";
-                instruct += evaluateExpression(t.getChild(0)).toString();
+                instruct += t.getChild(0).getText();
                 instruct += ",0,0);";
                 if(prepare) programa.add(ident+instruct); 
                 return null;
