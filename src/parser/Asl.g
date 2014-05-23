@@ -105,6 +105,7 @@ special_instruction
 	:	AVAN^
 	|	RETRO^
 	|	GIRA^ expr
+	|	CANVIAVELOCITAT^ expr
 	|	PARA^
 	|	DISPARAR^
 	|	sensors
@@ -234,6 +235,7 @@ FALSE   : 'false';
 
 AVAN	: 'avanca';
 RETRO	: 'retro';
+CANVIAVELOCITAT	:  'canviavelocitat';
 PARA	: 'para';
 GIRA	: 'gira';
 DISPARAR	: 'disparar';
