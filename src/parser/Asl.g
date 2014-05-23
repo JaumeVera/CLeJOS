@@ -117,6 +117,7 @@ sensors
 	|	LLUM^
 	|	SENTIRCOLOR^
 	|	ESPERARBOTO^
+	|	LLEGIRBOTO^
 	;
 
 // Assignment
@@ -240,7 +241,8 @@ PARA	: 'para';
 GIRA	: 'gira';
 DISPARAR	: 'disparar';
 
-ESPERARBOTO	: 'boto';
+ESPERARBOTO	: 'esperarboto';
+LLEGIRBOTO	: 'llegirboto';
 DISTANCIA	: 'distancia';
 CHOCAR	: 'chocar';
 LLUM	:  'llum';
@@ -272,5 +274,3 @@ WS  	: ( ' '
         | '\n'
         ) {$channel=HIDDEN;}
     	;
-
-
