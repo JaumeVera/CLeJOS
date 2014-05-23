@@ -476,12 +476,24 @@ public class Interp {
 		return null;
 		
 	    case AslLexer.GIRA:
-		instruct = "Motor.B.rotate(";
+		
 		Data number = evaluateExpression(t.getChild(0));
-		checkInteger(number);
-		String str = number.getEquivalent();
-		instruct += str;
-		instruct += "); Motor.C.rotate("+str+");";
+		if (number.getIntegerValue() >= 0) {
+		    instruct = "Motor.B.rotate(";
+		    checkInteger(number);
+		    String str = number.getEquivalent();
+		    instruct += str;
+		    
+		}
+		else {
+		    instruct = "Motor.C.rotate(";
+		    checkInteger(number);
+		    String str = number.getEquivalent();
+		    str = str.replace("-","");
+		    instruct += str;
+		}
+		
+		instruct += "); ";
 		if(prepare) programa.add(ident+instruct);
 		return null;
 		
