@@ -211,7 +211,6 @@ GT	    : '>';
 GE	    : '>=';
 PLUS	: '+' ;
 MINUS	: '-' ;
-LLUM	:  'llum';
 MUL	    : '*';
 DIV	    : '/';
 MOD	    : '%' ;
@@ -242,6 +241,7 @@ DISPARAR	: 'disparar';
 ESPERARBOTO	: 'boto';
 DISTANCIA	: 'distancia';
 CHOCAR	: 'chocar';
+LLUM	:  'llum';
 SENTIRCOLOR	: 'sentircolor';
 
 COLOR	: ( 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE');
