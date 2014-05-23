@@ -98,7 +98,7 @@ public class Interp {
     /** Runs the program by calling the main function. */
     public void Run() {
       String main = "  public static void main(";
-      String args = " String[] args";
+      main += " String[] args";
       main += ") throws InterruptedException {";
       programa.add(main);
       programa.add("      touch = new TouchSensor(SensorPort.S1);");
@@ -499,6 +499,29 @@ public class Interp {
 		if(prepare) programa.add(ident+instruct);
 		return null;
 		
+ 	   case AslLexer.CANVIAVELOCITAT:
+		
+		Data number = evaluateExpression(t.getChild(0));
+		if (number.getIntegerValue() >= 0) {
+		    instruct = "Motor.B.setSpeed(";
+		    checkInteger(number);
+		    String str = number.getEquivalent();
+		    instruct += str;
+		    
+		}
+		else {
+		    instruct = "Motor.C.setSpeed(";
+		    checkInteger(number);
+		    String str = number.getEquivalent();
+		    str = str.replace("-","");
+		    instruct += str;
+		}
+		
+		instruct += "); ";
+		if(prepare) programa.add(ident+instruct);
+		return null;
+		
+		
 	   case AslLexer.DISPARAR:
 		instruct = "Motor.A.backward()";
 		if(prepare) programa.add(ident+instruct+";");
@@ -525,7 +548,7 @@ public class Interp {
 		return null;
 		
 	   case AslLexer.ESPERARBOTO:
-		instruct = "boto.waitForPress()";
+		instruct = "Button.waitForAnyPress()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 		
@@ -712,8 +735,8 @@ public class Interp {
 		return value;
 		
 	   case AslLexer.ESPERARBOTO:
-		instruct = "boto.waitForPress()";
-		value = new Data(true);
+		instruct = "Button.waitForAnyPress()";
+		value = new Data(0;
 		value.defineEquivalent(instruct);
 		return value;
 		
