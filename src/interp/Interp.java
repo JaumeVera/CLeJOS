@@ -490,9 +490,8 @@ public class Interp {
 		else {
 		    instruct = "Motor.C.rotate(";
 		    checkInteger(number);
-		    String str = number.getEquivalent();
-		    str = str.replace("-","");
-		    instruct += str;
+		    String str = "-("+number.getEquivalent();
+		    instruct += str+")";
 		}
 		
 		instruct += "); ";
@@ -501,7 +500,7 @@ public class Interp {
 		
  	   case AslLexer.CANVIAVELOCITAT:
 		
-		Data number = evaluateExpression(t.getChild(0));
+		number = evaluateExpression(t.getChild(0));
 		if (number.getIntegerValue() >= 0) {
 		    instruct = "Motor.B.setSpeed(";
 		    checkInteger(number);
@@ -512,9 +511,8 @@ public class Interp {
 		else {
 		    instruct = "Motor.C.setSpeed(";
 		    checkInteger(number);
-		    String str = number.getEquivalent();
-		    str = str.replace("-","");
-		    instruct += str;
+		    String str = "-("+number.getEquivalent();
+		    instruct += str+")";
 		}
 		
 		instruct += "); ";
@@ -549,6 +547,11 @@ public class Interp {
 		
 	   case AslLexer.ESPERARBOTO:
 		instruct = "Button.waitForAnyPress()";
+		if(prepare) programa.add(ident+instruct+";");
+		return null;
+		
+	   case AslLexer.LLEGIRBOTO:
+		instruct = "Button.readButtons()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 		
@@ -722,8 +725,9 @@ public class Interp {
 		
 	   case AslLexer.LLUM:
  		instruct = "light.readValue()";
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
+		value = new Data(0);
+		value.defineEquivalent(instruct);
+		return value;
 		
 		
 	   case AslLexer.SENTIRCOLOR:
@@ -736,7 +740,13 @@ public class Interp {
 		
 	   case AslLexer.ESPERARBOTO:
 		instruct = "Button.waitForAnyPress()";
-		value = new Data(0;
+		value = new Data(0);
+		value.defineEquivalent(instruct);
+		return value;
+		
+	   case AslLexer.LLEGIRBOTO:
+		instruct = "Button.readButtons()";
+		value = new Data(0);
 		value.defineEquivalent(instruct);
 		return value;
 		
