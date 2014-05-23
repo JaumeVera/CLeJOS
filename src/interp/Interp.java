@@ -103,6 +103,7 @@ public class Interp {
       programa.add(main);
       programa.add("      touch = new TouchSensor(SensorPort.S1);");
       programa.add("      color = new ColorSensor(SensorPort.S3);");
+      programa.add("      light = new LightSensor(SensorPort.S3);");      
       programa.add("      ultrasonic = new UltrasonicSensor(SensorPort.S4);");
       executeFunction ("main", null, true);
       programa.add("  }");
@@ -149,16 +150,17 @@ public class Interp {
       programa.add("import lejos.nxt.Button;");
       programa.add("import lejos.nxt.SensorPort;");
       
-      //Three sensors
+      //Four sensors
       programa.add("import lejos.nxt.TouchSensor;");
       programa.add("import lejos.nxt.UltrasonicSensor;");
       programa.add("import lejos.nxt.ColorSensor;");
+      programa.add("import lejos.nxt.LightSensor;");      
       programa.add("");
       programa.add("public class NXTLeJOS {");
       programa.add("  private static TouchSensor touch;");
       programa.add("  private static ColorSensor color;");
       programa.add("  private static UltrasonicSensor ultrasonic;");
-      programa.add("  private Button boto;");
+      programa.add("  private static LightSensor light;");      
       programa.add("");
       int posarbr = 2;
       Set a = FuncName2Tree.keySet();
@@ -476,29 +478,17 @@ public class Interp {
 		return null;
 		
 	    case AslLexer.GIRA:
-		
+		instruct = "Motor.B.rotate(";
 		Data number = evaluateExpression(t.getChild(0));
-		if (number.getIntegerValue() >= 0) {
-		    instruct = "Motor.B.rotate(";
-		    checkInteger(number);
-		    String str = number.getEquivalent();
-		    instruct += str;
-		    
-		}
-		else {
-		    instruct = "Motor.C.rotate(";
-		    checkInteger(number);
-		    String str = number.getEquivalent();
-		    str = str.replace("-","");
-		    instruct += str;
-		}
-		
-		instruct += "); ";
+		checkInteger(number);
+		String str = number.getEquivalent();
+		instruct += str;
+		instruct += "); Motor.C.rotate("+str+");";
 		if(prepare) programa.add(ident+instruct);
 		return null;
 		
 	   case AslLexer.DISPARAR:
-		instruct = "Motor.A.forward()";
+		instruct = "Motor.A.backward()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 
