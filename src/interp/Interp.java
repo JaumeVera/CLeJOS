@@ -478,12 +478,24 @@ public class Interp {
 		return null;
 		
 	    case AslLexer.GIRA:
-		instruct = "Motor.B.rotate(";
+		
 		Data number = evaluateExpression(t.getChild(0));
-		checkInteger(number);
-		String str = number.getEquivalent();
-		instruct += str;
-		instruct += "); Motor.C.rotate("+str+");";
+		if (number.getIntegerValue() >= 0) {
+		    instruct = "Motor.B.rotate(";
+		    checkInteger(number);
+		    String str = number.getEquivalent();
+		    instruct += str;
+		    
+		}
+		else {
+		    instruct = "Motor.C.rotate(";
+		    checkInteger(number);
+		    String str = number.getEquivalent();
+		    str = str.replace("-","");
+		    instruct += str;
+		}
+		
+		instruct += "); ";
 		if(prepare) programa.add(ident+instruct);
 		return null;
 		
@@ -499,6 +511,11 @@ public class Interp {
 		
 	   case AslLexer.DISTANCIA:
 		instruct = "sonar.getDistance()";
+		if(prepare) programa.add(ident+instruct+";");
+		return null;
+		
+	   case AslLexer.LLUM:
+ 		instruct = "light.readValue()";
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 		
@@ -679,6 +696,12 @@ public class Interp {
 		value = new Data(0);
 		value.defineEquivalent(instruct);
 		return value;
+		
+	   case AslLexer.LLUM:
+ 		instruct = "light.readValue()";
+		if(prepare) programa.add(ident+instruct+";");
+		return null;
+		
 		
 	   case AslLexer.SENTIRCOLOR:
 		// Color can be 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE'
