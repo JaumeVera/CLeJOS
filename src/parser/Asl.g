@@ -84,7 +84,7 @@ ptype	: tipus^;
         
 // A list of instructions, all of them gouped in a subtree
 block_instructions
-        :	 (instruction ';')*
+        :	 instruction (';' instruction)*
             -> ^(LIST_INSTR instruction+)
         ;
 
@@ -113,6 +113,7 @@ special_instruction
 sensors
 	:	CHOCAR^
 	|	DISTANCIA^
+	|	LLUM^
 	|	SENTIRCOLOR^
 	|	ESPERARBOTO^
 	;
@@ -210,6 +211,7 @@ GT	    : '>';
 GE	    : '>=';
 PLUS	: '+' ;
 MINUS	: '-' ;
+LLUM	:  'llum';
 MUL	    : '*';
 DIV	    : '/';
 MOD	    : '%' ;
