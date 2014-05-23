@@ -128,7 +128,7 @@ public class Asl{
 		BufferedWriter writer = null;
 		try {
 			    writer = new BufferedWriter(new OutputStreamWriter(
-			          new FileOutputStream("filename.txt"), "utf-8"));
+			          new FileOutputStream(args[0] + ".java"), "utf-8"));
 			   
 			} catch (IOException ex) {
 			  // report
