@@ -126,21 +126,26 @@ public class Asl{
                 I.Run();                  // Executes the code
 		ArrayList<String> a = I.getVector();
 		BufferedWriter writer = null;
+		try {
+			    writer = new BufferedWriter(new OutputStreamWriter(
+			          new FileOutputStream("filename.txt"), "utf-8"));
+			   
+			} catch (IOException ex) {
+			  // report
+			} 
 		for (int i = 0; i < a.size(); i++){
 		  //System.out.println(a.get(i));
 
 			try {
-			    writer = new BufferedWriter(new OutputStreamWriter(
-			          new FileOutputStream("filename.txt"), "utf-8"));
+			    
 			    writer.write(a.get(i));
 			    writer.newLine();
 			} catch (IOException ex) {
 			  // report
-			} finally {
-			   try {writer.close();} catch (Exception ex) {}
-			}
+			} 
 		  
 		}
+		writer.close();
 	
             } catch (RuntimeException e) {
                 if (I != null) linenumber = I.lineNumber();
