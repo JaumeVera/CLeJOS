@@ -145,7 +145,7 @@ read	:	READ^ ID
         ;
 
 // Write an expression or a string
-write	:   WRITE^ (expr | STRING )
+write	:   WRITE^ expr
         ;
 
 // Grammar for expressions with boolean, relational and aritmetic operators
@@ -176,6 +176,7 @@ atom    :   ID (LBRACK^ expr RBRACK!)?
         |   funcall
         |   LPAREN^ expr ')'!
         |   sensors
+        |   STRING
         |   COLOR
         ;
 
@@ -248,8 +249,8 @@ CHOCAR	: 'chocar';
 LLUM	:  'llum';
 SENTIRCOLOR	: 'sentircolor';
 
-//COLOR	: ( 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE');
-COLOR : ( 'BLACK' | 'BLUE' | 'CYAN' | 'DARK_GRAY' | 'GRAY' | 'GREEN' | 'LIGHT_GRAY' | 'MAGENTA' | 'NONE' | 'ORANGE' | 'PINK' | 'RED' | 'YELLOW' | 'WHITE');
+COLOR	: ( 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE');
+//COLOR	: ( 'BLACK' | 'BLUE' | 'CYAN' | 'DARK_GRAY' | 'GRAY' | 'GREEN' | 'LIGHT_GRAY' | 'MAGENTA' | 'NONE' | 'ORANGE' | 'PINK' | 'RED' | 'YELLOW' | 'WHITE');
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 INT 	:	'0'..'9'+ ;
 

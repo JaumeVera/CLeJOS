@@ -184,7 +184,8 @@ public class Interp {
 	  aux += "){";
 	  programa.add(aux);
 	  Data d = executeFunction(fname, f.getChild(posarbr), true);
-	  if (ftype != "void" && d == null) throw new RuntimeException ("Missing return statement in: " + fname);
+	  if ((!ftype.equals("void")) && d.isVoid()) throw new RuntimeException ("Missing return statement in: " + fname);
+	  else if (ftype.equals("void") && (!d.isVoid())) throw new RuntimeException ("Expected returning nothing from a void function.");
 	  programa.add("  }");
 	  programa.add("");
 	}
@@ -684,6 +685,11 @@ public class Interp {
                 value = new Data(t.getBooleanValue());
                 value.defineEquivalent(t.getText());
                 break;
+            // A String literal
+            case AslLexer.STRING:
+                value = new Data(t.getStringValue());
+                value.defineEquivalent(t.getText());
+                break;
             case AslLexer.COLOR:
                 value = new Data(t.getText());
                 value.defineEquivalent("ColorSensor.Color."+t.getText());
@@ -709,16 +715,21 @@ public class Interp {
             
             // Array
             case AslLexer.LBRACK:
-		value = new Data(Stack.getVariable(t.getChild(0).getText()));
+		String nom = t.getChild(0).getText();
+		value = new Data(Stack.getVariable(nom));
 		Data value2 = evaluateExpression(t.getChild(1));
-		equivalent = "[";
+		equivalent = nom;
+		equivalent += "[";
 		equivalent += value2.getEquivalent();
 		equivalent += "]";
 		if(value.getType() == Data.Type.ARRAYB){
 		  value = new Data(value.getArrayBooleanValue(value2.getIntegerValue()));
 		}
-		else{
+		else if (value.getType() == Data.Type.ARRAYI){
 		  value = new Data(value.getArrayIntegerValue(value2.getIntegerValue()));
+		}
+		else{
+		  value = new Data(value.getArrayStringValue(value2.getIntegerValue()));
 		}
 		value.defineEquivalent(equivalent);
                 break;
