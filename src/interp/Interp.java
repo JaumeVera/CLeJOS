@@ -456,6 +456,7 @@ public class Interp {
 
             // Write statement: it can write an expression or a string.
             case AslLexer.WRITE:
+				programa.add("LCD.clear();");
                 instruct = "LCD.drawString(";
                 instruct += t.getChild(0).getText();
                 instruct += ",0,0);";
