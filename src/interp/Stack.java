@@ -110,6 +110,11 @@ public class Stack {
         }
         return v;
     }
+    
+    public boolean exists(String name) {
+	Data v = CurrentAR.get(name);
+	return v != null;
+    }
 
     /**
      * Generates a string with the contents of the stack trace.

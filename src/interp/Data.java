@@ -228,7 +228,7 @@ public class Data {
 	else if (type == Type.ARRAYS) typ = "String Array";
 	else if (type == Type.BOOLEAN) typ = "Boolean";
 	else if (type == Type.STRING) typ = "String";
-	throw new RuntimeException ("Wrong type. Expected: Boolean Array.Found: "+typ+".");
+	throw new RuntimeException ("Wrong type. Expected: Boolean Array. Found: "+typ+".");
       }
       type = Type.ARRAYB;
     }
@@ -243,7 +243,7 @@ public class Data {
 	else if (type == Type.ARRAYS) typ = "String Array";
 	else if (type == Type.BOOLEAN) typ = "Boolean";
 	else if (type == Type.STRING) typ = "String";
-	throw new RuntimeException ("Wrong type. Expected: Integer Array.Found: "+typ+".");
+	throw new RuntimeException ("Wrong type. Expected: Integer Array. Found: "+typ+".");
       }
       type = Type.ARRAYI;
     }
@@ -258,9 +258,30 @@ public class Data {
 	else if (type == Type.ARRAYI) typ = "Integer Array";
 	else if (type == Type.BOOLEAN) typ = "Boolean";
 	else if (type == Type.STRING) typ = "String";
-	throw new RuntimeException ("Wrong type. Expected: Integer Array.Found: "+typ+".");
+	throw new RuntimeException ("Wrong type. Expected: String Array. Found: "+typ+".");
       }
       type = Type.ARRAYS;
+    }
+    
+    public void initArray(int pos, int v) {
+      type = Type.ARRAYI;
+      content = new int[pos+1];
+      for(int i = 0; i < pos; i++) content[i] = 0;
+      content[pos] = v;
+    }
+    
+    public void initArray(int pos, Boolean b) {
+      type = Type.ARRAYB;
+      content = new int[pos+1];
+      for(int i = 0; i < pos; i++) content[i] = 0;
+      content[pos] = b ? 1 : 0;
+    }
+    
+    public void initArray(int pos, String w) {
+      type = Type.ARRAYS;
+      words = new String[pos+1];
+      for(int i = 0; i < pos; i++) words[i] = "";
+      words[pos] = w;
     }
     
     /** Copies the value from another data */

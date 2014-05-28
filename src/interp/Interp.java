@@ -309,31 +309,41 @@ public class Interp {
                 Data pos = new Data(0);
                 if(tson.getType() == AslLexer.LBRACK){
                     nom = tson.getChild(0).getText();
-                    if(Stack.defineVariable(tson.getChild(0).getText(), value)){
+                    pos = evaluateExpression(tson.getChild(1));
+                    int posicio = pos.getIntegerValue();
+                    Data d = new Data(0);
+                    if(!Stack.exists(nom)){
+			Stack.defineVariable(nom, value);
                         switch(value.getType()){
-                          case ARRAYB:
+                          case BOOLEAN:
                             tipus = "boolean[";
                             break;
-                          case ARRAYI:
+                          case INTEGER:
                             tipus = "int[";
                             break;
-                          case ARRAYS:
+                          case STRING:
                             tipus = "String[";
                             break;
                           default: assert false;
-                              }
+                        }
+			d = Stack.getVariable(nom);
+			if (value.isBoolean()) d.initArray(posicio, value.getBooleanValue());
+			else if (value.isInteger()) d.initArray(posicio, value.getIntegerValue());
+			else d.initArray(posicio, value.getStringValue());
+			Stack.defineVariable(nom, d);
                     }
-                    else tipus = "void[]";
-                    Data d = Stack.getVariable(tson.getChild(0).getText());
-                    pos = evaluateExpression(tson.getChild(1));
-                    int posicio = pos.getIntegerValue();
-                    if (value.isBoolean()) d.setValue(posicio, value.getBooleanValue());
-                    else d.setValue(posicio, value.getIntegerValue());
-                    tipus += pos.getEquivalent()+"]";
+                    else{
+		      d = Stack.getVariable(nom);
+		      if (value.isBoolean()) d.setValue(posicio, value.getBooleanValue());
+		      else if (value.isInteger()) d.setValue(posicio, value.getIntegerValue());
+		      else if (value.isString()) d.setValue(posicio, value.getStringValue());
+		      tipus = "void[]";
+		    }
+                    d = Stack.getVariable(nom);
                 }
                 else{
                     nom = t.getChild(0).getText();
-                    if(Stack.defineVariable (t.getChild(0).getText(), value)){
+                    if(Stack.defineVariable (nom, value)){
 		      switch(value.getType()){
 			case BOOLEAN:
 			  tipus = "boolean";
@@ -349,17 +359,19 @@ public class Interp {
                     }
                 }
                 if(prepare){
-                    if(tipus.equals("void")){
+                    if(tipus.equals("void") || tipus.equals ("void[]")){
+		      if(tipus.equals ("void[]")) nom += "["+pos.getEquivalent()+"]";
 		      value.defineEquivalent(nom+" = "+ value.getEquivalent());
 		      programa.add(ident+value.getEquivalent()+";");
 		    }
-                    else if(tipus.equals("void[]")){
-		      programa.add(ident+value.getEquivalent()+"new "+ tipus + "[" + pos.getEquivalent() +"];");
-		      programa.add(ident+nom+" = "+ value.getEquivalent()+";");
-		    }
+                    else if(tipus.equals("boolean[") || tipus.equals("int[") || tipus.equals("String[")){
+		      programa.add(ident + tipus + "]" + " " + nom + " = new "+ tipus + pos.getEquivalent() +"];");
+		      programa.add(ident + nom + "[" + pos.getEquivalent() + "-1]" + " = " + value.getEquivalent() +";");
+                    }
                     else{
-		      value.defineEquivalent(nom+" = "+ value.getEquivalent());
-		      programa.add(ident+tipus+" "+ value.getEquivalent()+";");
+		      if((!tipus.equals("boolean")) && (!tipus.equals("int")) && (!tipus.equals("String"))) tipus += pos.getEquivalent()+"]";
+		      value.defineEquivalent(nom + " = " + value.getEquivalent());
+		      programa.add(ident + tipus+" "+ value.getEquivalent() + ";");
 		    }
                 }    
                 return null;
@@ -456,7 +468,7 @@ public class Interp {
 
             // Write statement: it can write an expression or a string.
             case AslLexer.WRITE:
-				programa.add("LCD.clear();");
+				programa.add(ident+"LCD.clear();");
                 instruct = "LCD.drawString(";
                 instruct += t.getChild(0).getText();
                 instruct += ",0,0);";
@@ -719,7 +731,7 @@ public class Interp {
 		return value;
 		
 	   case AslLexer.DISTANCIA:
-		instruct = "sonar.getDistance()";
+		instruct = "ultrasonic.getDistance()";
 		value = new Data(0);
 		value.defineEquivalent(instruct);
 		return value;
