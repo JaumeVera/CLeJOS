@@ -2,6 +2,30 @@ func void main()
     if sentircolor = BLACK then
       write "Negre"
     endif;
+    if sentircolor = CYAN then
+      write "Cian"
+    endif;
+    if sentircolor = DARK_GRAY then
+      write "Gris oscur"
+    endif;
+    if sentircolor = GRAY then
+      write "Gris"
+    endif;
+    if sentircolor = LIGHT_GRAY then
+      write "Gris clar"
+    endif;
+    if sentircolor = MAGENTA then
+      write "Magenta"
+    endif;
+    if sentircolor = NONE then
+      write "Cap color"
+    endif;   
+    if sentircolor = ORANGE then
+      write "Taronja"
+    endif;  
+    if sentircolor = PINK then
+      write "Rosa"
+    endif;         
     if sentircolor = BLUE then
       write "Blau"
     endif;
