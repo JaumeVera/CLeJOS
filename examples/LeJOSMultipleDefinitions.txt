@@ -1,0 +1,14 @@
+func int prueba()
+  i = 0;
+  return i;
+endfunc
+
+func int prueba()
+  i = 0;
+  return i;
+endfunc
+
+
+func void main()
+    prueba();
+endfunc

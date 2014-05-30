@@ -1,0 +1,8 @@
+func void main()
+    avanca;
+    esperarboto;
+    canviavelocitat 100;
+    canviavelocitat -100;
+    esperarboto;
+    para;
+endfunc

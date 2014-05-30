@@ -1,0 +1,6 @@
+func void main()
+    while not chocar do
+      retro;
+    endwhile;
+    para;
+endfunc

@@ -1,0 +1,6 @@
+func void main()
+    while sentircolor != BLACK do
+      avanca;
+    endwhile;
+    para
+endfunc

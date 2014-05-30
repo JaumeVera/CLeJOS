@@ -1,0 +1,6 @@
+func void main()
+    while llegirboto != 0 do
+      avanca;
+    endwhile;
+    para
+endfunc

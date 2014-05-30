@@ -1,2 +1,0 @@
-func void main()  
-endfunc

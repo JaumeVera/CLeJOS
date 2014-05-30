@@ -1,0 +1,8 @@
+func int prueba()
+  i = 0;
+  return i;
+endfunc
+
+func void main()
+    otraprueba();
+endfunc

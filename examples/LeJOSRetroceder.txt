@@ -1,0 +1,5 @@
+func void main()
+    retro;
+    esperarboto;
+    para;
+endfunc

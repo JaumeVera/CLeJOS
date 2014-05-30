@@ -1,7 +1,5 @@
 func void main()
     avanca;
+    esperarboto;
     para;
-    retro;
-    gira 30;
-    disparar;
 endfunc

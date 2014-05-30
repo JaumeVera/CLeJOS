@@ -1,0 +1,6 @@
+func void main()
+    b = true;
+    if b = 0 then
+      b = 0;
+    endif
+endfunc

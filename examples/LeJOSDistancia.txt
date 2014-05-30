@@ -1,0 +1,6 @@
+func void main()
+    while distancia > 50 do
+      avanca;
+    endwhile;
+    para
+endfunc
