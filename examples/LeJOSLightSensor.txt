@@ -1,6 +1,0 @@
-func void main()
-    while llum > 50 do
-      avanca;
-    endwhile;
-    para
-endfunc

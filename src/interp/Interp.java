@@ -102,8 +102,7 @@ public class Interp {
       main += ") throws InterruptedException {";
       programa.add(main);
       programa.add("      touch = new TouchSensor(SensorPort.S1);");
-      programa.add("      color = new ColorSensor(SensorPort.S3);");
-      programa.add("      light = new LightSensor(SensorPort.S3);");      
+      programa.add("      color = new ColorSensor(SensorPort.S3);"); 
       programa.add("      ultrasonic = new UltrasonicSensor(SensorPort.S4);");
       executeFunction ("main", null, true);
       programa.add("  }");
@@ -154,13 +153,11 @@ public class Interp {
       programa.add("import lejos.nxt.TouchSensor;");
       programa.add("import lejos.nxt.UltrasonicSensor;");
       programa.add("import lejos.nxt.ColorSensor;");
-      programa.add("import lejos.nxt.LightSensor;");      
       programa.add("");
       programa.add("public class NXTLeJOS {");
       programa.add("  private static TouchSensor touch;");
       programa.add("  private static ColorSensor color;");
       programa.add("  private static UltrasonicSensor ultrasonic;");
-      programa.add("  private static LightSensor light;");      
       programa.add("");
       int posarbr = 2;
       Set a = FuncName2Tree.keySet();
@@ -550,11 +547,6 @@ public class Interp {
 		if(prepare) programa.add(ident+instruct+";");
 		return null;
 		
-	   case AslLexer.LLUM:
- 		instruct = "light.readValue()";
-		if(prepare) programa.add(ident+instruct+";");
-		return null;
-		
 	   case AslLexer.SENTIRCOLOR:
 		instruct = "color.getColorID()";
 		if(prepare) programa.add(ident+instruct+";");
@@ -747,13 +739,6 @@ public class Interp {
 		value = new Data(0);
 		value.defineEquivalent(instruct);
 		return value;
-		
-	   case AslLexer.LLUM:
- 		instruct = "light.readValue()";
-		value = new Data(0);
-		value.defineEquivalent(instruct);
-		return value;
-		
 		
 	   case AslLexer.SENTIRCOLOR:
 		// Color can be 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE'

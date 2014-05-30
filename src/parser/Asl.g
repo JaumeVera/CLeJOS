@@ -114,7 +114,6 @@ special_instruction
 sensors
 	:	CHOCAR^
 	|	DISTANCIA^
-	|	LLUM^
 	|	SENTIRCOLOR^
 	|	ESPERARBOTO^
 	|	LLEGIRBOTO^
@@ -246,7 +245,6 @@ ESPERARBOTO	: 'esperarboto';
 LLEGIRBOTO	: 'llegirboto';
 DISTANCIA	: 'distancia';
 CHOCAR	: 'chocar';
-LLUM	:  'llum';
 SENTIRCOLOR	: 'sentircolor';
 
 //COLOR	: ( 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE');
