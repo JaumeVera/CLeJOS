@@ -249,8 +249,8 @@ CHOCAR	: 'chocar';
 LLUM	:  'llum';
 SENTIRCOLOR	: 'sentircolor';
 
-COLOR	: ( 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE');
-//COLOR	: ( 'BLACK' | 'BLUE' | 'CYAN' | 'DARK_GRAY' | 'GRAY' | 'GREEN' | 'LIGHT_GRAY' | 'MAGENTA' | 'NONE' | 'ORANGE' | 'PINK' | 'RED' | 'YELLOW' | 'WHITE');
+//COLOR	: ( 'BLACK' | 'BLUE' | 'GREEN' | 'YELLOW' | 'RED' | 'WHITE');
+COLOR	: ( 'BLACK' | 'BLUE' | 'CYAN' | 'DARK_GRAY' | 'GRAY' | 'GREEN' | 'LIGHT_GRAY' | 'MAGENTA' | 'NONE' | 'ORANGE' | 'PINK' | 'RED' | 'YELLOW' | 'WHITE');
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 INT 	:	'0'..'9'+ ;
 
