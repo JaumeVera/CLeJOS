@@ -1,6 +1,20 @@
 func void main()
-    while sentircolor != BLACK do
-      avanca;
-    endwhile;
-    para
+    if sentircolor = BLACK then
+      write "Negre"
+    endif;
+    if sentircolor = BLUE then
+      write "Blau"
+    endif;
+    if sentircolor = GREEN then
+      write "Verd"
+    endif;
+    if sentircolor = YELLOW then
+      write "Groc"
+    endif;
+    if sentircolor = RED then
+      write "Red"
+    endif;
+    if sentircolor = WHITE then
+      write "Blanc"
+    endif;
 endfunc

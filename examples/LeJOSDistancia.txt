@@ -1,5 +1,5 @@
 func void main()
-    while distancia > 50 do
+    while distancia > 10 do
       avanca;
     endwhile;
     para

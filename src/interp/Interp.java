@@ -471,7 +471,8 @@ public class Interp {
             case AslLexer.WRITE:
 				programa.add(ident+"LCD.clear();");
                 instruct = "LCD.drawString(";
-                instruct += t.getChild(0).getText();
+                Data a = evaluateExpression(t.getChild(0));
+                instruct += a.getEquivalent();
                 instruct += ",0,0);";
                 if(prepare) programa.add(ident+instruct); 
                 return null;

@@ -1,0 +1,11 @@
+func void main()  
+  a[10] = true;
+  i = 0;
+  while i < 10 do
+    if i < 9 then
+      a[i] = false;
+    endif;
+    esperarboto;
+    i = i + 1;
+  endwhile;
+endfunc
