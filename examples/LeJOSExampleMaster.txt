@@ -14,7 +14,7 @@ func void main()
         retro; 
     endwhile; 
     para;
-    while llegirboto == 0 do
+    while llegirboto = 0 do
         if sentircolor = BLACK then
           write "Negre"
         endif;
