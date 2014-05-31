@@ -4,11 +4,13 @@ func void main()
     endwhile; 
     while(distancia > 20) do 
         avanca; 
-    endwhile; 
-    gira 3600; 
-    disparar; 
+    endwhile;
     para;
-    while llegirboto != 0 do
+    gira 3600; 
+    disparar;
+    esperarboto;
+    para;
+    while llegirboto == 0 do
         if sentircolor = BLACK then
           write "Negre"
         endif;
